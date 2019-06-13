@@ -40,23 +40,24 @@ function showOpenTodos(list, output) {
 }
 
 function refreshAll() {
-  showOpenTodos(general, outputGeneral);
-  showOpenTodos(work, outputWork);
-  showOpenTodos(c1, outputC1);
-  showOpenTodos(c2, outputC2);
-  showOpenTodos(c3, outputC3);
-  showOpenTodos(c4, outputC4);
+  showOpenTodos(db.general, outputGeneral);
+  showOpenTodos(db.work, outputWork);
+  showOpenTodos(db.c1, outputC1);
+  showOpenTodos(db.c2, outputC2);
+  showOpenTodos(db.c3, outputC3);
+  showOpenTodos(db.c4, outputC4);
 }
 
 // ! Complete Todo
-// ! A this point i want to leave the completed todos
-// ! .. and want to give possibility to clear all done todos
+// A this point i want to leave the completed todos..
+// .. and want to give possibility to clear all done todos
 document.body.addEventListener('click', e => {
   if (
     e.target.classList.contains('checkmark') &&
     e.target.innerHTML === '[ ]'
   ) {
     console.log(
+      // path to the output container header as text
       e.target.parentElement.parentElement.previousElementSibling.innerText
     );
     e.target.innerHTML = '[X]';
@@ -76,5 +77,3 @@ document.body.addEventListener('click', e => {
     e.target.parentElement.style.fontWeight = 'initial';
   }
 });
-
-// add a click listener to each checkmark!
