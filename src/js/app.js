@@ -22,10 +22,14 @@ inputForm.addEventListener('submit', e => {
   const cmdIndexEnd = cmdIndexStart + 3;
   const cmd = item.substring(cmdIndexStart, cmdIndexEnd);
 
-  const itemList = item.substring(0, cmdIndexStart - 1).toLowerCase();
+  const itemList = `db.${item
+    .substring(0, cmdIndexStart - 1)
+    .toLowerCase()}`;
   const itemTitle = item
     .substring(cmdIndexEnd + 1, item.length)
     .toLowerCase();
+
+  console.log(itemList + ' ' + typeof itemList);
 
   createItem(itemList, cmd, itemTitle, e);
 

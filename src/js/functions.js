@@ -1,6 +1,7 @@
 // ! init
 function init() {
   refreshAll();
+  console.log(db.general);
 }
 
 // ! Clear Input
@@ -56,17 +57,18 @@ document.body.addEventListener('click', e => {
     e.target.classList.contains('checkmark') &&
     e.target.innerHTML === '[ ]'
   ) {
-    console.log(
-      // path to the output container header as text
-      e.target.parentElement.parentElement.previousElementSibling.innerText
-    );
+    let targetList = `db.${e.target.parentElement.parentElement.previousElementSibling.innerText.toLowerCase()}`;
+    targetList = eval(targetList);
     e.target.innerHTML = '[X]';
     // flag list item as 'done: true'
+    console.log(targetList + ' ' + typeof targetList);
+    targetList.done = true;
     e.target.parentElement.style.color = 'green';
     e.target.parentElement.style.fontWeight = 'bold';
     // setTimeout(() => {
     //   e.target.parentElement.remove();
     // }, 3000);
+    console.log(db.general);
   } else if (
     e.target.classList.contains('checkmark') &&
     e.target.innerHTML === '[X]'
@@ -75,5 +77,6 @@ document.body.addEventListener('click', e => {
     // flag list item as 'done: false'
     e.target.parentElement.style.color = 'black';
     e.target.parentElement.style.fontWeight = 'initial';
+    console.log(db.general);
   }
 });
