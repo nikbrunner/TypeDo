@@ -1,37 +1,30 @@
-// todo [ ] add local storage
-// todo [ ] destroy / complete todo
-// todo [ ] add keywords
-// todo [ ] design
-
 init();
 
-// ! Input KeyUp Listener
-// input.addEventListener('keyup', () => {
-//   if (input.value === 'show') {
-//     // ! Clear input after keyword is triggered
-//     showOpenTodos();
-//     input.value = '';
-//   }
-// });
-
-// ! Submit Listener
+// ! Submit Listener | todo
 inputForm.addEventListener('submit', e => {
-  const item = input.value;
-
-  const cmdIndexStart = item.indexOf('-');
+  const command = input.value;
+  // ! Declare  command as an object with methods ?!
+  // getCommandParam(command);
+  const cmdIndexStart = command.indexOf('-');
   const cmdIndexEnd = cmdIndexStart + 3;
-  const cmd = item.substring(cmdIndexStart, cmdIndexEnd);
-
-  const itemList = `db.${item
-    .substring(0, cmdIndexStart - 1)
-    .toLowerCase()}`;
-  const itemTitle = item
-    .substring(cmdIndexEnd + 1, item.length)
-    .toLowerCase();
-
-  console.log(itemList + ' ' + typeof itemList);
-
-  createItem(itemList, cmd, itemTitle, e);
+  const cmd = command.substring(cmdIndexStart, cmdIndexEnd);
+  // ! I really want to refactor here but i dont know how
+  // - Methods ?
+  // - Functions ?
+  if (cmd === commands.todo) {
+    const itemList = `db.${command
+      .substring(0, cmdIndexStart - 1)
+      .toLowerCase()}`;
+    const itemTitle = command
+      .substring(cmdIndexEnd + 1, command.length)
+      .toLowerCase();
+    createItem(itemList, cmd, itemTitle, e);
+  } else if (command === commands.console.clearAllDone) {
+    refreshAll();
+    clearInput();
+  } else if (command === commands.console.clearAllOutputs) {
+    clearAllOutputs();
+  }
 
   e.preventDefault();
 });
