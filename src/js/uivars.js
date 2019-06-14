@@ -20,11 +20,3 @@ const commands = {
     lightMode: 'console -lm',
   },
 };
-
-// function getCommandParam(command) {
-//   const cmdIndexStart = command.indexOf('-');
-//   const cmdIndexEnd = cmdIndexStart + 3;
-//   const cmd = command.substring(cmdIndexStart, cmdIndexEnd);
-//   return cmd;
-// }
-// function getOutputList(command)

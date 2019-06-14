@@ -1,28 +1,58 @@
 init();
-
 // ! Submit Listener | todo
 inputForm.addEventListener('submit', e => {
-  const command = input.value;
-  // ! Declare  command as an object with methods ?!
-  // getCommandParam(command);
-  const cmdIndexStart = command.indexOf('-');
-  const cmdIndexEnd = cmdIndexStart + 3;
-  const cmd = command.substring(cmdIndexStart, cmdIndexEnd);
-  // ! I really want to refactor here but i dont know how
-  // - Methods ?
-  // - Functions ?
-  if (cmd === commands.todo) {
-    const itemList = `db.${command
-      .substring(0, cmdIndexStart - 1)
-      .toLowerCase()}`;
-    const itemTitle = command
-      .substring(cmdIndexEnd + 1, command.length)
-      .toLowerCase();
-    createItem(itemList, cmd, itemTitle, e);
-  } else if (command === commands.console.clearAllDone) {
+  const command = {
+    input: input.value,
+    extractCMD: function() {
+      return this.input.substring(
+        this.CMDIndexStart(),
+        this.CMDIndexEnd()
+      );
+    },
+    CMDIndexStart: function() {
+      return this.input.indexOf('-');
+    },
+    CMDIndexEnd: function() {
+      return this.CMDIndexStart() + 3;
+    },
+    extractList: function() {
+      return `db.${this.input
+        .substring(0, this.CMDIndexStart() - 1)
+        .toLowerCase()}`;
+    },
+    extractTitle: function() {
+      return this.input
+        .substring(this.CMDIndexEnd() + 1, this.input.length)
+        .toLowerCase();
+    },
+  };
+
+  console.log(
+    command.input +
+      '|' +
+      command.CMDIndexStart() +
+      '|' +
+      command.CMDIndexEnd() +
+      '|' +
+      command.extractCMD() +
+      '|' +
+      command.extractList() +
+      '|' +
+      command.extractTitle()
+  );
+  if (command.extractCMD() === commands.todo) {
+    createItem(
+      command.extractList(),
+      command.extractCMD(),
+      command.extractTitle(),
+      e
+    );
+  } else if (command.input === commands.console.clearAllDone) {
     refreshAll();
     clearInput();
-  } else if (command === commands.console.clearAllOutputs) {
+  } else if (
+    command.input === commands.console.clearAllOutputs
+  ) {
     clearAllOutputs();
   }
 
