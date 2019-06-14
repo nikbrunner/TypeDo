@@ -58,6 +58,9 @@ body {
 #input {
   display: block;
   width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
 }
 
 #header-right {
@@ -107,4 +110,18 @@ body {
 
 .outputList {
   list-style: none;
+}
+
+.checkmark {
+  position: relative;
+  top: 3px;
+  text-align: center;
+  font-size: 1.8rem;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+}
+
+.completed {
+  color: green;
 }

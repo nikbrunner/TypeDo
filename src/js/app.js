@@ -1,5 +1,5 @@
 init();
-// ! Submit Listener | todo
+
 inputForm.addEventListener('submit', e => {
   const command = {
     input: input.value,
@@ -27,19 +27,6 @@ inputForm.addEventListener('submit', e => {
     },
   };
 
-  console.log(
-    command.input +
-      '|' +
-      command.CMDIndexStart() +
-      '|' +
-      command.CMDIndexEnd() +
-      '|' +
-      command.extractCMD() +
-      '|' +
-      command.extractList() +
-      '|' +
-      command.extractTitle()
-  );
   if (command.extractCMD() === commands.todo) {
     createItem(
       command.extractList(),

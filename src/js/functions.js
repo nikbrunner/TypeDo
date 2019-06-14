@@ -54,13 +54,13 @@ function refreshList(list, output) {
   // ! filter open todos
   list.forEach(todo => {
     if (todo.done === false) {
-      checkmark = ' ';
+      checkmark = '&bull;';
       openTodos.push(todo);
     }
   });
   let outputString = '';
   openTodos.forEach(todo => {
-    outputString += `<li class="outputListItem"><span class="checkmark">[${checkmark}]</span> ${
+    outputString += `<li class="outputListItem"><span class="checkmark">${checkmark}</span> ${
       todo.title
     }</li>`;
   });
@@ -72,32 +72,26 @@ function refreshList(list, output) {
 // .. and want to give possibility to clear all done todos
 document.body.addEventListener('click', e => {
   if (
-    e.target.classList.contains('checkmark') &&
-    e.target.innerHTML === '[ ]'
+    e.target.classList.contains('outputListItem') &&
+    e.target.classList.contains('completed')
   ) {
-    let targetList = `db.${e.target.parentElement.parentElement.previousElementSibling.innerText.toLowerCase()}`;
+    e.target.firstChild.innerHTML = '&bull;';
+    e.target.classList.remove('completed');
+    // todo flag list item as 'done: false'
+  } else if (e.target.classList.contains('outputListItem')) {
+    let targetList = `db.${e.target.parentElement.previousElementSibling.innerText.toLowerCase()}`;
     targetList = eval(targetList);
-    let targetItemInnerText = e.target.parentElement.innerText;
-    let targetItemTitle = targetItemInnerText.substring(
-      4,
-      targetItemInnerText.length
+    let targetItemTitle = e.target.innerText.substring(
+      2,
+      e.target.innerText.length
     );
     searchAndCompleteItem(targetItemTitle, targetList);
-    e.target.innerHTML = '[X]';
+    e.target.firstChild.innerHTML = '&cross;';
+    e.target.classList.add('completed');
 
-    e.target.parentElement.style.color = 'green';
-    e.target.parentElement.style.fontWeight = 'bold';
     // setTimeout(() => {
     //   e.target.parentElement.remove();
     // }, 3000);
-  } else if (
-    e.target.classList.contains('checkmark') &&
-    e.target.innerHTML === '[X]'
-  ) {
-    e.target.innerHTML = '[ ]';
-    // todo flag list item as 'done: false'
-    e.target.parentElement.style.color = 'black';
-    e.target.parentElement.style.fontWeight = 'initial';
   }
 });
 
