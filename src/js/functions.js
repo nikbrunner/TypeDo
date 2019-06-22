@@ -40,6 +40,7 @@ function clearAllOutputs() {
 // ! Create Todo
 function createItem(list, cmd, title, e) {
   list = eval(list);
+  // todo  post to server  via post http request
   list.push({ title: title, done: false });
   refreshAll();
   clearInput();
@@ -51,7 +52,8 @@ function refreshList(list, output) {
   // ? why do not need to convert 'list' here ?
   let openTodos = [];
   let checkmark;
-  // ! filter open todos
+  // filter open todos
+  // todo get from server via get http request
   list.forEach(todo => {
     if (todo.done === false) {
       checkmark = '&bull;';
