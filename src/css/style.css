@@ -20,7 +20,7 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4 * 1fr);
-  /* grid-template-rows: 75px calc(100vh - 75px); */
+  grid-template-rows: 50px calc(100vh - 50px);
   grid-template-areas:
     'header header header header'
     'output output output output';
