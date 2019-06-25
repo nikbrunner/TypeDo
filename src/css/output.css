@@ -17,12 +17,13 @@
 
 .outputHeader {
   margin-bottom: 1rem;
+  color: var(--highlight-color);
 }
 
 .outputContainer {
-  background-color: white;
+  background-color: inherit;
   padding: 15px;
-  border: 1px solid black;
+  border-bottom: 1px dotted var(--highlight-color);
   width: 25%;
   height: 50%;
   /* overflow: hidden; */
@@ -50,7 +51,7 @@
 
 .outputListItem {
   /* white-space: nowrap; */
-  margin-bottom: 5px;
-  border-bottom: 1px solid black;
-  padding-bottom: 5px;
+  color: var(--highlight-color);
+  border-bottom: 1px dashed var(--highlight-color);
+  padding-bottom: 10px;
 }

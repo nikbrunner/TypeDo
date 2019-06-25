@@ -4,18 +4,38 @@
 @import 'buttons.css';
 @import 'utilities.css';
 
+/* 
+Colors:
+#ffc600
+#0d3a58
+#193549
+#122738
+*/
+
+:root {
+  --highlight-color: #ffc600;
+  --bright-mid-color: #0d3a58;
+  --dark-mid-color: #193549;
+  --dark-deep-color: #122738;
+  --success-color: mediumseagreen;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html,
 body {
+  background-color: var(--dark-mid-color);
   width: 100%;
   height: 100%;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Work Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
+  background-color: inherit;
   width: 100%;
   height: 100%;
   display: grid;
@@ -24,4 +44,18 @@ body {
   grid-template-areas:
     'header header header header'
     'output output output output';
+}
+
+@media (max-width: 414px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 50px calc(100vh - 100px);
+    grid-template-areas:
+      'header'
+      'header'
+      'output';
+  }
 }
