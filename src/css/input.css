@@ -1,0 +1,17 @@
+#inputForm {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+}

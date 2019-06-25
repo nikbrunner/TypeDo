@@ -1,0 +1,37 @@
+#header {
+  grid-area: header;
+  background-color: white;
+  display: grid;
+  height: 50px;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+#header-left {
+  height: inherit;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  padding: 5px 5px 5px 15px;
+}
+
+#logo {
+  font-size: 1.3rem;
+  color: black;
+}
+
+#header-middle {
+  height: inherit;
+  padding: 0;
+}
+
+#header-right {
+  height: inherit;
+  padding: 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+}
