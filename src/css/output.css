@@ -9,6 +9,12 @@
   align-content: flex-start;
 }
 
+@media (max-width: 1024px) {
+  #output {
+    flex-flow: row wrap;
+  }
+}
+
 .outputHeader {
   margin-bottom: 1rem;
 }
@@ -20,6 +26,17 @@
   width: 25%;
   height: 50%;
   /* overflow: hidden; */
+}
+
+@media (max-width: 1024px) {
+  .outputContainer {
+    width: 50%;
+  }
+}
+@media (max-width: 414px) {
+  .outputContainer {
+    width: 100%;
+  }
 }
 
 .outputContainer:nth-of-type(1),
