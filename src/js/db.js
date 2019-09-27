@@ -31,3 +31,5 @@ const createTodo = (list, title) => {
 UI_btnTodoSubmit.onclick = e => {
   createTodo(UI_inputTodoList, UI_inputTodoTitle);
 };
+
+console.log(createTodo);

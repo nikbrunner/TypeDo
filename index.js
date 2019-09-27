@@ -13,7 +13,7 @@ const db = 'db/';
 // Setup Static 'Express' Server
 const express = require('express');
 const server = express();
-const PORT = 1234;
+const PORT = 5000;
 server.use(express.static('public'));
 server.use(bodyParser.json());
 
@@ -66,9 +66,14 @@ server.listen(PORT, err => {
     console.log(
         err ||
             chalk.whiteBright('::: ') +
-                chalk.greenBright.bold(` Server running on `) +
-                chalk.cyanBright.bold(` Port ${PORT} `) +
-                chalk.magentaBright.bold(` since ${time} `) +
+                chalk.greenBright.bold(`Server running on `) +
+                chalk.cyanBright.bold(`Port ${PORT} `) +
+                chalk.magentaBright.bold(`since ${time} `) +
                 chalk.whiteBright(' :::')
+    );
+    console.log(
+        chalk.whiteBright('::: ') +
+            chalk.yellowBright.bold('Use this port as client!') +
+            chalk.whiteBright(' :::')
     );
 });

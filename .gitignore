@@ -1,6 +1,5 @@
-archive/
+# archive/
 node_modules/
-.vscode/
+# .vscode/
 public/
-assets/
 .cache/

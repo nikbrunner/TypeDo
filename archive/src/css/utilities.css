@@ -1,0 +1,13 @@
+.checkmark {
+  position: relative;
+  top: 3px;
+  text-align: center;
+  font-size: 1.8rem;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+}
+
+.completed {
+  color: var(--success-color);
+}
