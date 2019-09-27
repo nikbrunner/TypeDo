@@ -1,6 +1,6 @@
 # TypeDo
 
-![TypeDo Logo](assets/img/TypeDo_Logo_Small.png)
+![TypeDo Logo](https://api.pcloud.com/getpubthumb?code=XZACtzkZlqVmxhzcjIzMOs5mIYtDz8q6CP6k&linkpassword=undefined&size=275x100&crop=0&type=auto)
 
 ## Description
 
