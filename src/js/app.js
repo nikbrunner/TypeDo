@@ -15,20 +15,20 @@ const createTodo = (list, title, note) => {
         method: 'post',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-            todoList: list.value,
-            todoTitle: title.value,
-            todoNote: note.value,
+            list: list.value,
+            title: title.value,
+            note: note.value,
         }),
     });
 
     fetch(storeTodo)
-        .then(response => response.json(), err => console.log(err))
-        .then(response => {
-            console.log(response);
-            // console.log(response.general[0].title);
-            response = JSON.stringify(response);
-            // UI_output.innerHTML = response.general[0].title;
-            UI_output.innerHTML = response;
+        .then(res => res.json(), err => console.log(err))
+        .then(res => {
+            console.log(res);
+            // console.log(res.general[0].title);
+            res = JSON.stringify(res);
+            // UI_output.innerHTML = res.general[0].title;
+            UI_output.innerHTML = res;
         });
 };
 

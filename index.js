@@ -19,15 +19,15 @@ server.use(express.static('public'));
 server.use(bodyParser.json());
 
 // Path
-server.post('/storeTodo', (request, response) => {
-    const todoList = request.body.todoList;
-    const todoTitle = request.body.todoTitle;
-    const todoNote = request.body.todoNote;
+server.post('/storeTodo', (req, res) => {
+    const list = req.body.list;
+    const title = req.body.title;
+    const note = req.body.note;
     class Todo {
-        constructor(todoTitle, todoNote) {
+        constructor(title, note) {
             this.id = uuidv4();
-            this.title = todoTitle;
-            this.note = todoNote;
+            this.title = title;
+            this.note = note;
             this.dateCreated = moment().format('L');
             this.dateSince = moment()
                 .startOf(this.dateCreated)
@@ -37,15 +37,15 @@ server.post('/storeTodo', (request, response) => {
         }
     }
 
-    const todo = new Todo(todoTitle, todoNote);
+    const todo = new Todo(title, note);
 
-    if (todos.hasOwnProperty(todoList)) todos[todoList].push(todo);
+    if (todos.hasOwnProperty(list)) todos[list].push(todo);
     else {
-        todos[todoList] = [];
-        todos[todoList].push(todo);
+        todos[list] = [];
+        todos[list].push(todo);
     }
 
-    response.send(todos);
+    res.send(todos);
 
     /* Create a JSON File on the server for each todoList
      * if a file with the [todoList].json name exits append
