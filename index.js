@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const uuidv4 = require('uuid/v4');
+const moment = require('moment');
 
 // Variables
 const todos = {};
@@ -21,15 +22,22 @@ server.use(bodyParser.json());
 server.post('/storeTodo', (request, response) => {
     const todoList = request.body.todoList;
     const todoTitle = request.body.todoTitle;
-
+    const todoNote = request.body.todoNote;
     class Todo {
-        constructor(todoTitle) {
-            (this.todoId = uuidv4()),
-                (this.todoTitle = todoTitle),
-                (this.done = false);
+        constructor(todoTitle, todoNote) {
+            this.id = uuidv4();
+            this.title = todoTitle;
+            this.note = todoNote;
+            this.dateCreated = moment().format('L');
+            this.dateSince = moment()
+                .startOf(this.dateCreated)
+                .fromNow();
+            this.dateCompleted = '';
+            this.done = false;
         }
     }
-    const todo = new Todo(todoTitle);
+
+    const todo = new Todo(todoTitle, todoNote);
 
     if (todos.hasOwnProperty(todoList)) todos[todoList].push(todo);
     else {
@@ -37,7 +45,6 @@ server.post('/storeTodo', (request, response) => {
         todos[todoList].push(todo);
     }
 
-    // Send 'todo' back as object to the client
     response.send(todos);
 
     /* Create a JSON File on the server for each todoList
@@ -49,31 +56,23 @@ server.post('/storeTodo', (request, response) => {
      * - write to file
      * - if not create file
      */
-
-    // fs.writeFile(path, data, {flag: "wx"}, function(err) {
-    //   if (err) console.log(err);
-    //   else console.log("It's saved!");
-    // });
-
-    console.log(todos);
 });
 
 // Setup Server Listen
 server.listen(PORT, err => {
-    let time = new Date().toLocaleTimeString('en-US', {
-        hour12: false,
-    });
     console.log(
         err ||
             chalk.whiteBright('::: ') +
                 chalk.greenBright.bold(`Server running on `) +
                 chalk.cyanBright.bold(`Port ${PORT} `) +
-                chalk.magentaBright.bold(`since ${time} `) +
+                chalk.magentaBright.bold(`since ${moment().format('LT')} `) +
                 chalk.whiteBright(' :::')
     );
     console.log(
         chalk.whiteBright('::: ') +
-            chalk.yellowBright.bold('Use this port as client!') +
+            chalk.yellowBright.bold(
+                '         Use this port as client!         '
+            ) +
             chalk.whiteBright(' :::')
     );
 });
