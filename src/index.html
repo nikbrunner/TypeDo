@@ -10,16 +10,33 @@
         </title>
     </head>
     <body>
-        <h1>TypeDo</h1>
+        <header>
+            <h1>TypeDo</h1>
+            <p>A minimal, keyboard focused todo app with multiple lists</p>
+        </header>
 
-        <p>A minimal, keyboard focused todo app with multiple lists</p>
-
-        <div id="input">
-            <input type="text" name="inputTodoList" id="UI_inputTodoList" />
-            <input type="text" name="inputTodoTitle" id="UI_inputTodoTitle" />
-            <input type="text" name="inputTodoNote" id="UI_inputTodoNote" />
-            <button id="UI_btnTodoSubmit">Add Todo</button>
+        <div id="UI_input">
+            <input
+                type="text"
+                name="inputTodoList"
+                id="UI_inputTodoList"
+                placeholder="todoList"
+            />
+            <input
+                type="text"
+                name="inputTodoTitle"
+                id="UI_inputTodoTitle"
+                placeholder="todoTitle"
+            />
+            <input
+                type="text"
+                name="inputTodoNote"
+                id="UI_inputTodoNote"
+                placeholder="todoNote"
+            />
         </div>
+
+        <button id="UI_btnTodoSubmit">Add Todo</button>
 
         <div id="UI_output"></div>
 

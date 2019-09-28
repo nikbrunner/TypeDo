@@ -5,10 +5,10 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
-        "dev": "npm run server & npm run bundle",
+        "dev": "npm run server & rm -rf - public/ & npm run bundle",
         "server": "nodemon index.js",
         "bundle": "parcel src/index.html -d public",
-        "public": "parcel build src/index.html -d public"
+        "public": "rm -rf public/ & parcel build src/index.html -d public"
     },
     "keywords": [
         "typedo",
@@ -22,6 +22,7 @@
         "express": "^4.17.1",
         "moment": "^2.24.0",
         "sass": "^1.22.12",
-        "uuid": "^3.3.3"
+        "uuid": "^3.3.3",
+        "autoprefixer": "^9.6.1"
     }
 }
