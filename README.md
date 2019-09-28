@@ -1,9 +1,5 @@
 # TypeDo
 
-![TypeDo Logo](https://api.pcloud.com/getpubthumb?code=XZACtzkZlqVmxhzcjIzMOs5mIYtDz8q6CP6k&linkpassword=undefined&size=275x100&crop=0&type=auto)
-
-## Description
-
 A minimal, keyboard focused and performant todo app with multiple lists.
 
 ## Functionality
