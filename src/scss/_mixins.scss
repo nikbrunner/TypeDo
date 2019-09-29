@@ -1,0 +1,62 @@
+@import 'variables';
+@import 'colors';
+
+@mixin grid($columns, $column-gap, $rows, $row-gap) {
+    display: grid;
+    grid-template-columns: $columns;
+    grid-column-gap: $column-gap;
+    grid-template-rows: $rows;
+    grid-row-gap: $row-gap;
+}
+
+@mixin flex($flex-flow, $justify-content, $align-content, $align-items) {
+    display: flex;
+    flex-flow: $flex-flow;
+    justify-content: $justify-content;
+    align-content: $align-content;
+    align-items: $align-items;
+}
+@mixin linearGradientBG(
+    $color1,
+    $color1-threshold,
+    $color2,
+    $color2-threshold,
+    $dir
+) {
+    background: $color1;
+    background: linear-gradient(
+        $dir,
+        $color1 $color1-threshold,
+        $color2 $color2-threshold
+    );
+}
+@mixin box-shadow() {
+    box-shadow: rgba(15, 15, 15, 0.2) 0px 0px 0px 1px,
+        rgba(15, 15, 15, 0.2) 0px 2px 4px;
+}
+@mixin box-shadow--inset() {
+    box-shadow: rgba(15, 15, 15, 0.2) 0px 0px 0px 1px inset,
+        rgba(15, 15, 15, 0.2) 0px 2px 4px inset;
+}
+@mixin text-shadow() {
+    text-shadow: 0 1px rgba(15, 15, 15, 0.2);
+}
+@mixin logoStyling($bgColor, $fgColor) {
+    @include box-shadow();
+    height: calc(#{$header__brand--height} * 0.7);
+    border-radius: calc(#{$border-radius} * 1.8);
+    #Background {
+        fill: $bgColor;
+        stroke: $fgColor;
+    }
+    #Background_2 {
+        fill: $bgColor;
+        stroke: $fgColor;
+    }
+    #T {
+        fill: $fgColor;
+    }
+    #ypeDo {
+        fill: $fgColor;
+    }
+}

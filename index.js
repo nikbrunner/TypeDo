@@ -20,12 +20,21 @@ server.use(bodyParser.json());
 
 // Path
 server.post('/storeTodo', (req, res) => {
+    let clientId = '';
+    const serverId = uuidv4();
     const list = req.body.list;
     const title = req.body.title;
     const note = req.body.note;
+
+    if (todos.hasOwnProperty(list)) {
+        listLength = todos[list].length;
+        clientId = listLength + 1;
+    } else clientId = 1;
+
     class Todo {
         constructor(title, note) {
-            this.id = uuidv4();
+            this.clientId = clientId;
+            this.serverId = serverId;
             this.title = title;
             this.note = note;
             this.dateCreated = moment().format('L');

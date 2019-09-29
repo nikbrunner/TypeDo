@@ -1,0 +1,15 @@
+@import 'colors';
+@import 'variables';
+
+@mixin logoStyling($bgColor, $fgColor) {
+    @include box-shadow();
+    height: calc(#{$header-height} * 0.75);
+    #Background {
+        fill: $bgColor;
+        stroke: $fgColor;
+    }
+    #Background_2 {
+        fill: $bgColor;
+        stroke: $fgColor;
+    }
+}

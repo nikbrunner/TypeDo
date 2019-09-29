@@ -10,19 +10,16 @@
         "bundle": "parcel src/index.html -d public",
         "public": "rm -rf public/ & parcel build src/index.html -d public"
     },
-    "keywords": [
-        "typedo",
-        "todo"
-    ],
     "author": "nibru",
     "license": "ISC",
     "devDependencies": {
+        "autoprefixer": "^9.6.1",
         "body-parser": "^1.19.0",
         "chalk": "^2.4.2",
         "express": "^4.17.1",
         "moment": "^2.24.0",
+        "normalize.css": "^8.0.1",
         "sass": "^1.22.12",
-        "uuid": "^3.3.3",
-        "autoprefixer": "^9.6.1"
+        "uuid": "^3.3.3"
     }
 }

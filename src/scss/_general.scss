@@ -1,0 +1,94 @@
+@import 'base';
+@import 'uni-space';
+@import 'variables';
+@import 'colors';
+@import 'mixins';
+@import 'fonts';
+
+body {
+    background: $color-white;
+}
+
+.header {
+    @include box-shadow();
+    background: $color-dark;
+    height: $header--height;
+    margin-bottom: $space-m;
+    padding: 0;
+    &__brand {
+        @include flex(row nowrap, space-between, center, center);
+        @include box-shadow();
+        height: $header__brand--height;
+        padding: $space-xs $space-m $space-xs;
+        position: relative;
+        z-index: 100;
+        .brand__logo {
+            @include logoStyling($color-mid--dark, $color-accent);
+        }
+        .brand__slogan {
+            @include text-shadow();
+            color: $color-mid--bright;
+            font-family: $font-text;
+        }
+    }
+    &__input {
+        @include flex(row nowrap, center, center, center);
+        background: $color-mid--dark;
+        height: $header__input--height;
+        padding: 0 $space-m;
+        position: relative;
+        z-index: 99;
+        * {
+            height: calc(#{$header__input--height} * 0.75);
+            margin: 0 $space-xs;
+        }
+        input {
+            @include box-shadow--inset();
+            @include text-shadow();
+            background: $color-white;
+            border-radius: $border-radius;
+            border: none;
+            color: $color-mid--dark;
+            font-family: $font-text;
+            min-width: 3rem;
+            padding: $space-xxs $space-xxs;
+            &:placeholder {
+                color: $color-mid--dark;
+            }
+            &:focus {
+                background: $color-mid;
+                color: $color-white;
+            }
+        }
+        button {
+            @include box-shadow();
+            @include flex(row nowrap, center, center, center);
+            background: $color-dark;
+            border-radius: $border-radius;
+            border: none;
+            color: $color-mid--bright;
+            cursor: pointer;
+            font-family: $font-text;
+            padding: $space-xxs;
+            position: relative;
+            z-index: 99;
+            svg {
+                fill: $color-bright;
+                height: 1rem;
+                width: 1rem;
+                margin: 0;
+            }
+            &:focus {
+                border-radius: $border-radius;
+                box-shadow: 0px 0px 0px 1px $color-mid--bright;
+                outline: none;
+            }
+            &:hover {
+                background: $color-mid;
+                svg {
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+}
