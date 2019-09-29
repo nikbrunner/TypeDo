@@ -71,6 +71,7 @@ body {
             font-family: $font-text;
             padding: $space-xxs;
             position: relative;
+            outline: none;
             z-index: 99;
             svg {
                 fill: $color-bright;

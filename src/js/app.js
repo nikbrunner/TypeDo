@@ -11,7 +11,7 @@ const clearOutput = () => {
 
 // - createTodo()
 const createTodo = (list, title, note) => {
-    let storeTodo = new Request('/storeTodo', {
+    let storeTodo = new Request('/saveTodo', {
         method: 'post',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({

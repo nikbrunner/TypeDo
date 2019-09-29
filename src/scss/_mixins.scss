@@ -30,13 +30,12 @@
         $color2 $color2-threshold
     );
 }
-@mixin box-shadow() {
-    box-shadow: rgba(15, 15, 15, 0.2) 0px 0px 0px 1px,
-        rgba(15, 15, 15, 0.2) 0px 2px 4px;
+@mixin box-shadow($shadow--color: #0f0f0f33) {
+    box-shadow: $shadow--color 0px 0px 0px 1px, $shadow--color 0px 2px 4px;
 }
-@mixin box-shadow--inset() {
-    box-shadow: rgba(15, 15, 15, 0.2) 0px 0px 0px 1px inset,
-        rgba(15, 15, 15, 0.2) 0px 2px 4px inset;
+@mixin box-shadow--inset($shadow--color: #0f0f0f33) {
+    box-shadow: $shadow--color 0px 0px 0px 1px inset,
+        $shadow--color 0px 0px 4px inset;
 }
 @mixin text-shadow() {
     text-shadow: 0 1px rgba(15, 15, 15, 0.2);

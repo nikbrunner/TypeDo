@@ -19,7 +19,10 @@ server.use(express.static('public'));
 server.use(bodyParser.json());
 
 // Path
-server.post('/storeTodo', (req, res) => {
+server.post('/saveTodo', (req, res) => {
+    // ? Async Await Function here ?
+    // ? async saveTodo().then(res.send)
+    // https://javascript.info/async-await
     let clientId = '';
     const serverId = uuidv4();
     const list = req.body.list;
@@ -55,7 +58,6 @@ server.post('/storeTodo', (req, res) => {
     }
 
     res.send(todos);
-
     /* Create a JSON File on the server for each todoList
      * if a file with the [todoList].json name exits append
      * - load json
