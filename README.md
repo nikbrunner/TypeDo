@@ -4,7 +4,7 @@ A minimal, keyboard focused and performant todo app with multiple lists.
 
 ## Functionality
 
-> These commands are all placeholder!
+> These commands are all placeholders!
 
 ### Syntax
 
