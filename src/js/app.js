@@ -1,37 +1,36 @@
 // DOM Elements
-const UI_inputTodoList = document.querySelector('#UI_inputTodoList');
-const UI_inputTodoTitle = document.querySelector('#UI_inputTodoTitle');
-const UI_inputTodoNote = document.querySelector('#UI_inputTodoNote');
-const UI_btnTodoSubmit = document.querySelector('#UI_btnTodoSubmit');
-const UI_output = document.querySelector('#UI_output');
+const UI_inputCommand = document.querySelector("#UI_inputCommand");
+const UI_btnTodoSubmit = document.querySelector("#UI_btnTodoSubmit");
+const UI_output = document.querySelector("#UI_output");
 
 const clearOutput = () => {
-    UI_output.innerHTML = '';
+  UI_output.innerHTML = "";
 };
 
-// - createTodo()
-const createTodo = (list, title, note) => {
-    let storeTodo = new Request('/saveTodo', {
-        method: 'post',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-            list: list.value,
-            title: title.value,
-            note: note.value,
-        }),
+const createTask = input => {
+  let createTask = new Request("/createTask", {
+    method: "post",
+    headers: {"content-type": "application/json"},
+    body: JSON.stringify({
+      command: input.value
+    })
+  });
+
+  fetch(createTask)
+    .then(res => res.json(), err => console.log(err))
+    .then(res => {
+      console.log(res);
+      res = JSON.stringify(res);
+      UI_output.innerHTML = res;
     });
-
-    fetch(storeTodo)
-        .then(res => res.json(), err => console.log(err))
-        .then(res => {
-            console.log(res);
-            // console.log(res.general[0].title);
-            res = JSON.stringify(res);
-            // UI_output.innerHTML = res.general[0].title;
-            UI_output.innerHTML = res;
-        });
 };
+
+UI_inputCommand.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    createTask(UI_inputCommand);
+  }
+});
 
 UI_btnTodoSubmit.onclick = e => {
-    createTodo(UI_inputTodoList, UI_inputTodoTitle, UI_inputTodoNote);
+  createTask(UI_inputCommand);
 };
