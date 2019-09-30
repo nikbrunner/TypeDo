@@ -1,7 +1,7 @@
 {
     "name": "typedo",
     "version": "0.1.0",
-    "description": "A minimal, keyboard focused and performant todo app with multiple lists",
+    "description": "A minimal, keyboard focused and performant todo app with multiple lists.",
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
