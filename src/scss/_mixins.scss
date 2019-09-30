@@ -40,7 +40,7 @@
 @mixin text-shadow() {
     text-shadow: 0 1px rgba(15, 15, 15, 0.2);
 }
-@mixin logoStyling($bgColor, $fgColor) {
+@mixin logoStyle($bgColor, $fgColor) {
     @include box-shadow();
     height: calc(#{$header__brand--height} * 0.7);
     border-radius: calc(#{$border-radius} * 1.8);
@@ -57,5 +57,58 @@
     }
     #ypeDo {
         fill: $fgColor;
+    }
+}
+
+@mixin btnStyle() {
+    @include box-shadow();
+    @include flex(row nowrap, center, center, center);
+    background: $color-dark;
+    border-radius: $border-radius;
+    border: none;
+    color: $color-mid--bright;
+    cursor: pointer;
+    font-family: $font-text;
+    padding: $space-xxs;
+    position: relative;
+    outline: none;
+    z-index: 99;
+    svg {
+        fill: $color-bright;
+        height: 1rem;
+        width: 1rem;
+        margin: 0;
+    }
+    &:focus {
+        border-radius: $border-radius;
+        box-shadow: 0px 0px 0px 1px $color-mid--bright;
+        outline: none;
+    }
+    &:hover {
+        background: $color-mid;
+        color: $color-white;
+        transform: translateY(1px);
+        svg {
+            fill: $color-white;
+        }
+    }
+}
+
+@mixin inputStyle() {
+    @include box-shadow--inset();
+    @include text-shadow();
+    background: $color-white;
+    border-radius: $border-radius;
+    border: none;
+    color: $color-mid--dark;
+    font-family: $font-text;
+    min-width: 3rem;
+    padding: $space-xxs $space-xxs;
+    &:placeholder {
+        color: $color-mid--dark;
+    }
+    &:focus {
+        background: $color-mid;
+        color: $color-white;
     }
 }

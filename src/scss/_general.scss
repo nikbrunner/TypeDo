@@ -15,23 +15,50 @@ body {
     height: $header--height;
     margin-bottom: $space-m;
     padding: 0;
-    &__brand {
-        @include flex(row nowrap, space-between, center, center);
+    &__topBar {
+        @include grid(1fr 1fr, 1rem, none, 0);
         @include box-shadow();
         height: $header__brand--height;
-        padding: $space-xs $space-m $space-xs;
+        padding: 0 $space-m 0;
         position: relative;
         z-index: 100;
-        .brand__logo {
-            @include logoStyling($color-mid--dark, $color-accent);
-        }
-        .brand__slogan {
-            @include text-shadow();
-            color: $color-mid--bright;
-            font-family: $font-text;
+        .topBar {
+            &__brand {
+                @include flex(row nowrap, flex-start, center, center);
+                .brand {
+                    &__logo {
+                        @include logoStyle($color-mid--dark, $color-accent);
+                    }
+                    &__slogan {
+                        @include text-shadow();
+                        color: $color-mid--bright;
+                        font-family: $font-text;
+                        margin-left: $space-xs;
+                    }
+                }
+            }
+            &__login {
+                @include flex(row nowrap, flex-end, center, center);
+                width: 100%;
+                * {
+                    margin: 0 $space-xs;
+                }
+                fieldset {
+                    outline: none;
+                    border: none;
+                    padding: 0;
+                }
+                input {
+                    @include inputStyle();
+                    width: 7.5rem;
+                }
+                button {
+                    @include btnStyle();
+                }
+            }
         }
     }
-    &__input {
+    &__command {
         @include flex(row nowrap, center, center, center);
         background: $color-mid--dark;
         height: $header__input--height;
@@ -43,53 +70,10 @@ body {
             margin: 0 $space-xs;
         }
         input {
-            @include box-shadow--inset();
-            @include text-shadow();
-            background: $color-white;
-            border-radius: $border-radius;
-            border: none;
-            color: $color-mid--dark;
-            font-family: $font-text;
-            min-width: 3rem;
-            padding: $space-xxs $space-xxs;
-            &:placeholder {
-                color: $color-mid--dark;
-            }
-            &:focus {
-                background: $color-mid;
-                color: $color-white;
-            }
+            @include inputStyle();
         }
         button {
-            @include box-shadow();
-            @include flex(row nowrap, center, center, center);
-            background: $color-dark;
-            border-radius: $border-radius;
-            border: none;
-            color: $color-mid--bright;
-            cursor: pointer;
-            font-family: $font-text;
-            padding: $space-xxs;
-            position: relative;
-            outline: none;
-            z-index: 99;
-            svg {
-                fill: $color-bright;
-                height: 1rem;
-                width: 1rem;
-                margin: 0;
-            }
-            &:focus {
-                border-radius: $border-radius;
-                box-shadow: 0px 0px 0px 1px $color-mid--bright;
-                outline: none;
-            }
-            &:hover {
-                background: $color-mid;
-                svg {
-                    fill: $color-white;
-                }
-            }
+            @include btnStyle();
         }
     }
 }
