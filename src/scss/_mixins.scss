@@ -1,114 +1,114 @@
-@import 'variables';
-@import 'colors';
+@import "variables";
+@import "colors";
 
 @mixin grid($columns, $column-gap, $rows, $row-gap) {
-    display: grid;
-    grid-template-columns: $columns;
-    grid-column-gap: $column-gap;
-    grid-template-rows: $rows;
-    grid-row-gap: $row-gap;
+  display: grid;
+  grid-template-columns: $columns;
+  grid-column-gap: $column-gap;
+  grid-template-rows: $rows;
+  grid-row-gap: $row-gap;
 }
 
 @mixin flex($flex-flow, $justify-content, $align-content, $align-items) {
-    display: flex;
-    flex-flow: $flex-flow;
-    justify-content: $justify-content;
-    align-content: $align-content;
-    align-items: $align-items;
+  display: flex;
+  flex-flow: $flex-flow;
+  justify-content: $justify-content;
+  align-content: $align-content;
+  align-items: $align-items;
 }
 @mixin linearGradientBG(
-    $color1,
-    $color1-threshold,
-    $color2,
-    $color2-threshold,
-    $dir
+  $color1,
+  $color1-threshold,
+  $color2,
+  $color2-threshold,
+  $dir
 ) {
-    background: $color1;
-    background: linear-gradient(
-        $dir,
-        $color1 $color1-threshold,
-        $color2 $color2-threshold
-    );
+  background: $color1;
+  background: linear-gradient(
+    $dir,
+    $color1 $color1-threshold,
+    $color2 $color2-threshold
+  );
 }
 @mixin box-shadow($shadow--color: #0f0f0f33) {
-    box-shadow: $shadow--color 0px 0px 0px 1px, $shadow--color 0px 2px 4px;
+  box-shadow: $shadow--color 0px 0px 0px 1px, $shadow--color 0px 2px 4px;
 }
 @mixin box-shadow--inset($shadow--color: #0f0f0f33) {
-    box-shadow: $shadow--color 0px 0px 0px 1px inset,
-        $shadow--color 0px 0px 4px inset;
+  box-shadow: $shadow--color 0px 0px 0px 1px inset,
+    $shadow--color 0px 0px 4px inset;
 }
 @mixin text-shadow() {
-    text-shadow: 0 1px rgba(15, 15, 15, 0.2);
+  text-shadow: 0 1px rgba(15, 15, 15, 0.2);
 }
 @mixin logoStyle($bgColor, $fgColor) {
-    @include box-shadow();
-    height: calc(#{$header__brand--height} * 0.7);
-    border-radius: calc(#{$border-radius} * 1.8);
-    #Background {
-        fill: $bgColor;
-        stroke: $fgColor;
-    }
-    #Background_2 {
-        fill: $bgColor;
-        stroke: $fgColor;
-    }
-    #T {
-        fill: $fgColor;
-    }
-    #ypeDo {
-        fill: $fgColor;
-    }
+  @include box-shadow();
+  height: calc(#{$header__brand--height} * 0.7);
+  border-radius: calc(#{$border-radius} * 1.5);
+  #Background {
+    fill: $bgColor;
+    stroke: $fgColor;
+  }
+  #Background_2 {
+    fill: $bgColor;
+    stroke: $fgColor;
+  }
+  #T {
+    fill: $fgColor;
+  }
+  #ypeDo {
+    fill: $fgColor;
+  }
 }
 
 @mixin btnStyle() {
-    @include box-shadow();
-    @include flex(row nowrap, center, center, center);
-    background: $color-dark;
+  @include box-shadow();
+  @include flex(row nowrap, center, center, center);
+  background: $color-dark;
+  border-radius: $border-radius;
+  border: none;
+  color: $color-mid--bright;
+  cursor: pointer;
+  font-family: $font-text;
+  padding: $space-xxs;
+  position: relative;
+  outline: none;
+  z-index: 99;
+  svg {
+    fill: $color-bright;
+    height: 1rem;
+    width: 1rem;
+    margin: 0;
+  }
+  &:focus {
     border-radius: $border-radius;
-    border: none;
-    color: $color-mid--bright;
-    cursor: pointer;
-    font-family: $font-text;
-    padding: $space-xxs;
-    position: relative;
+    box-shadow: 0px 0px 0px 1px $color-mid--bright;
     outline: none;
-    z-index: 99;
+  }
+  &:hover {
+    background: $color-mid;
+    color: $color-white;
+    transform: translateY(1px);
     svg {
-        fill: $color-bright;
-        height: 1rem;
-        width: 1rem;
-        margin: 0;
+      fill: $color-white;
     }
-    &:focus {
-        border-radius: $border-radius;
-        box-shadow: 0px 0px 0px 1px $color-mid--bright;
-        outline: none;
-    }
-    &:hover {
-        background: $color-mid;
-        color: $color-white;
-        transform: translateY(1px);
-        svg {
-            fill: $color-white;
-        }
-    }
+  }
 }
 
 @mixin inputStyle() {
-    @include box-shadow--inset();
-    @include text-shadow();
-    background: $color-white;
-    border-radius: $border-radius;
-    border: none;
+  @include box-shadow--inset();
+  @include text-shadow();
+  background: $color-white;
+  border-radius: $border-radius;
+  border: none;
+  color: $color-mid--dark;
+  font-family: $font-text;
+  min-width: 3rem;
+  padding: $space-xxs $space-xxs;
+  &:placeholder {
     color: $color-mid--dark;
-    font-family: $font-text;
-    min-width: 3rem;
-    padding: $space-xxs $space-xxs;
-    &:placeholder {
-        color: $color-mid--dark;
-    }
-    &:focus {
-        background: $color-mid;
-        color: $color-white;
-    }
+  }
+  &:focus {
+    background: $color-mid;
+    color: $color-white;
+  }
 }
