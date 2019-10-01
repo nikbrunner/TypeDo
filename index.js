@@ -37,46 +37,30 @@ server.post('/readTodoCollection', (req, res) => {
 });
 
 server.post('/createTask', (req, res) => {
+    // https://stackoverflow.com/questions/31264153/assign-value-from-successful-promise-resolve-to-external-variable
     const command = new Command(req.body.command);
+
+    let todoCollection = readTodoCollectionFile('nibru')
+        .then(data => {
+            data = JSON.parse(data);
+            return data;
+        })
+        .catch(err => err);
+
+    console.log(todoCollection);
+    console.log(typeof todoCollection);
 
     const todo = new Todo(
         command,
-        calculateClientIdBasedOnListLength(todos, command.list),
+        calculateClientIdBasedOnListLength(todoCollection, command.list),
         uuidv4()
     );
-
-    let todoCollection = {};
-
-    readTodoCollectionFile('nibru')
-        .then(data => {
-            data = JSON.parse(data);
-            // console.log(typeof data);
-            todoCollection = data;
-            console.log(todoCollection);
-        })
-        .catch(err => err);
 
     checkForExistingListsAndPushTodoToTarget(
         todoCollection,
         command.list,
         todo
     );
-
-    console.log(todoCollection);
-    console.log(command.list);
-    console.log(todo);
-
-    // checkForExistingListsAndPushTodoToTarget(todos, command.list, todo);
-
-    /* Create a JSON File on the server for each todoList
-     * if a file with the [todoList].json name exits append
-     * - load and parse json to object
-     * - append new todo to object
-     * - stringify object to json
-     * - write to file
-     * - if not create file
-     */
-
     writeTodoCollectionFile('nibru', todoCollection)
         .then(() => readTodoCollectionFile('nibru'))
         .then(data => res.send(data))
