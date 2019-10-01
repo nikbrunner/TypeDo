@@ -1,7 +1,10 @@
-$header--height: 5rem;
-$header__brand--height: calc(#{$header--height} * 0.55);
-$header__input--height: calc(#{$header--height} * 0.45);
+// ? Working with VH here?
+
+$header--height: 6.5rem;
+$header__brand--height: calc(#{$header--height} * 0.5);
+$header__input--height: calc(#{$header--height} * 0.5);
 
 $border-radius: 0.25rem;
 
+$breakpoint-xl: 1280px;
 $breakpoint-l: 1024px;

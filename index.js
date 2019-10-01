@@ -1,66 +1,87 @@
 // https://devcenter.heroku.com/articles/getting-started-with-nodejs
 
 // Import
-const chalk = require('chalk');
-const bodyParser = require('body-parser');
-const fs = require('fs');
-const uuidv4 = require('uuid/v4');
-const moment = require('moment');
-const { Command, Todo } = require('./lib/classConstructors.js');
+// const router = require("./routes/routes.js");
+const chalk = require("chalk");
+const bodyParser = require("body-parser");
+const fs = require("fs");
+const uuidv4 = require("uuid/v4");
+const moment = require("moment");
+const {Command, Todo} = require("./lib/classConstructors.js");
 const {
-    calculateClientIdBasedOnListLength,
-    checkForExistingListsAndPushTodoToTarget,
-} = require('./lib/serverFunctions.js');
+  calculateClientIdBasedOnListLength,
+  checkForExistingListsAndPushTodoToTarget,
+  writeTodoCollectionFile,
+  readTodoCollectionFile
+} = require("./lib/serverFunctions.js");
 
 // Variables
 const todos = {};
-const db = 'db/';
 
 // Setup Static 'Express' Server
-const express = require('express');
+const express = require("express");
 const server = express();
 const PORT = 5000;
-server.use(express.static('public'));
+server.use(express.static("public"));
 server.use(bodyParser.json());
 
-server.post('/createTask', (req, res) => {
-    const command = new Command(req.body.command);
+server.get("/", (req, res) => {
+  console.log("Hi");
+});
 
-    const todo = new Todo(
-        command,
-        calculateClientIdBasedOnListLength(todos, command.list),
-        uuidv4()
-    );
+let newTodoCollection = {};
 
-    checkForExistingListsAndPushTodoToTarget(todos, command.list, todo);
+readTodoCollectionFile("nibru")
+  .then(data => {
+    data = JSON.parse(data);
+    // console.log(data);
+    // console.log(typeof data);
+    newTodoCollection = data;
+  })
+  .then(data => {
+    console.log(newTodoCollection);
+  })
+  .catch(err => err);
 
-    res.send(todos);
-    /* Create a JSON File on the server for each todoList
-     * if a file with the [todoList].json name exits append
-     * - load json
-     * - convert to object
-     * - append to object
-     * - convert to json
-     * - write to file
-     * - if not create file
-     */
+server.post("/createTask", (req, res) => {
+  const command = new Command(req.body.command);
+
+  const todo = new Todo(
+    command,
+    calculateClientIdBasedOnListLength(todos, command.list),
+    uuidv4()
+  );
+
+  checkForExistingListsAndPushTodoToTarget(todos, command.list, todo);
+
+  /* Create a JSON File on the server for each todoList
+   * if a file with the [todoList].json name exits append
+   * - load and parse json to object
+   * - append new todo to object
+   * - stringify object to json
+   * - write to file
+   * - if not create file
+   */
+
+  writeTodoCollectionFile("nibru", todos)
+    .then(() => readTodoCollectionFile("nibru"))
+    .then(data => res.send(data))
+    .catch(err => console.log(err));
 });
 
 // Setup Server Listen
 server.listen(PORT, err => {
-    console.log(
-        err ||
-            chalk.whiteBright('::: ') +
-                chalk.greenBright.bold(`Server running on `) +
-                chalk.cyanBright.bold(`Port ${PORT} `) +
-                chalk.magentaBright.bold(`since ${moment().format('LT')} `) +
-                chalk.whiteBright(' :::')
-    );
-    console.log(
-        chalk.whiteBright('::: ') +
-            chalk.yellowBright.bold(
-                '         Use this port as client!         '
-            ) +
-            chalk.whiteBright(' :::')
-    );
+  console.log(
+    err ||
+      chalk.whiteBright("::: ") +
+        chalk.greenBright.bold(`Server running on `) +
+        chalk.cyanBright.bold(`Port ${PORT} `) +
+        chalk.magentaBright.bold(`since ${moment().format("LT")} `) +
+        chalk.whiteBright(" :::")
+  );
+  console.log(
+    chalk.whiteBright("::: ") +
+      chalk.yellowBright.bold("         Use this port as client!         ") +
+      chalk.whiteBright(" :::")
+  );
 });
