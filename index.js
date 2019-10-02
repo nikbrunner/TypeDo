@@ -48,7 +48,10 @@ server.post("/readTodoCollection", (req, res) => {
 });
 
 server.post("/createTask", (req, res) => {
-  // https://stackoverflow.com/questions/31264153/assign-value-from-successful-promise-resolve-to-external-variable
+  // ? Is create Task really a good name here?
+  // ? If generalize this rout as a processCommand route..
+  // ? ..i could work with a big switch statement here
+
   const command = new Command(req.body.command);
 
   const todo = new Todo(
@@ -59,15 +62,24 @@ server.post("/createTask", (req, res) => {
 
   checkForExistingListsAndPushTodoToTarget(todoCollection, command.list, todo);
 
-  writeTodoCollectionFile("nibru", todoCollection)
-    .then(() => readTodoCollectionFile("nibru"))
-    .then(data => {
-      // console.log(data);
-      todoCollection = JSON.parse(data);
-      res.send(data);
-    })
-
-    .catch(err => console.log(err));
+  if (command.cmd === "-td") {
+    writeTodoCollectionFile("nibru", todoCollection)
+      .then(() => readTodoCollectionFile("nibru"))
+      .then(data => {
+        // console.log(data);
+        todoCollection = JSON.parse(data);
+        res.send(data);
+      })
+      .catch(err => console.log(err));
+  } else if (command.cmd === "-xx") {
+    writeTodoCollectionFile("nibru", {})
+      .then(() => readTodoCollectionFile("nibru"))
+      .then(data => {
+        todoCollection = JSON.parse(data);
+        res.send(data);
+      })
+      .catch(err => console.log(err));
+  }
 });
 
 // Setup Server Listen

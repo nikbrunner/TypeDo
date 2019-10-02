@@ -14,6 +14,7 @@ export const readTodoCollection = userId => {
 };
 
 export const createTask = input => {
+  // createTask => processCommand
   let createTask = new Request("/createTask", {
     method: "post",
     headers: {"content-type": "application/json"},
@@ -23,16 +24,8 @@ export const createTask = input => {
   });
 
   fetch(createTask)
-    .then(
-      res => {
-        return res.json();
-      },
-      err => console.log(err)
-    )
-    .then(res => {
-      //console.log(res);
-      readTodoCollection("nibru");
-    });
+    .then(res => res.json(), err => console.log(err))
+    .then(() => readTodoCollection("nibru"));
 };
 
 export const emptyAndFocusTarget = target => {
@@ -65,7 +58,6 @@ export const scanListAndAddEventlistenerForScrolling = () => {
       scrollToPoints.push(container.offsetTop);
     });
   });
-  // window.scrollTo(0, list3.offsetTop);
 };
 
 export const buildTodos = input => {
