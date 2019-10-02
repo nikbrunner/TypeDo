@@ -8,3 +8,5 @@ $border-radius: 0.25rem;
 
 $breakpoint-xl: 1280px;
 $breakpoint-l: 1024px;
+
+$todo__container--height: calc(100% - #{$header--height});

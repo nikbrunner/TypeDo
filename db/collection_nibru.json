@@ -1,1 +1,522 @@
-{"gen":[{"clientId":1,"serverId":"e7a15db4-608f-4c3f-a50a-8edd764b814d","list":"gen","title":"wow","note":"No notes for that task!","dateCreated":"10/01/2019","dateSince":"a few seconds ago","dateCompleted":"","done":false}]}
+{
+  "gen": [
+    {
+      "clientId": 1,
+      "serverId": "6d3273a2-3557-44ca-bca9-01f945a38568",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "dateSince": "a few seconds ago",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": true
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": true
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": true
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": true
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "This is a really long title, but still not long enough",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task! No notes for that task! No notes for that task! No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "This is a really long title, but still not long enough",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task! No notes for that task! No notes for that task! No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "This is a really long title, but still not long enough",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task! No notes for that task! No notes for that task! No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    }
+  ],
+  "work": [
+    {
+      "clientId": 1,
+      "serverId": "9eb9f6b5-b1ef-4e93-b19d-a0da6b1a22c0",
+      "list": "work",
+      "title": "call peter",
+      "note": "urgent!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task! No notes for that task! No notes for that task! No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    }
+  ],
+  "project": [
+    {
+      "clientId": 1,
+      "serverId": "9eb9f6b5-b1ef-4e93-b19d-a0da6b1a22c0",
+      "list": "work",
+      "title": "call peter",
+      "note": "urgent!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 2,
+      "serverId": "606cd1d1-83b1-47cf-a776-3775420d4d6e",
+      "list": "gen",
+      "title": "wow",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 3,
+      "serverId": "4e8af10e-578b-400a-ae5d-d2505ebfc512",
+      "list": "gen",
+      "title": "wasser trinken",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 4,
+      "serverId": "1891d654-866c-4a03-aa5a-9827747c38ed",
+      "list": "gen",
+      "title": "huhu",
+      "note": "No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    },
+    {
+      "clientId": 5,
+      "serverId": "491b5167-a996-4035-91d6-8a572b0aef9c",
+      "list": "gen",
+      "title": "hello again",
+      "note": "No notes for that task! No notes for that task! No notes for that task! No notes for that task!",
+      "dateCreated": "10/02/2019",
+      "completed": false
+    }
+  ]
+}

@@ -14,14 +14,20 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: $font-text;
 }
 
+// ! Header
 .header {
   @include box-shadow();
   background: $color-dark;
   height: $header--height;
-  margin-bottom: $space-m;
+  width: 100vw;
   padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   &__topBar {
     @include grid(1fr 1fr, 1rem, none, 0);
     @include box-shadow();
@@ -112,6 +118,95 @@ body {
     }
     button {
       @include btnStyle();
+    }
+  }
+}
+
+// ! Todo Container
+
+.todo__container {
+  @include flex(column wrap, flex-start, flex-start, center);
+  // @include grid(
+  //   repeat(auto-fit, minmax(10rem, 0.25fr)),
+  //   $space-m,
+  //   1fr 1fr 1fr,
+  //   $space-m
+  // );
+  min-width: 100%;
+  padding: $space-s $space-m;
+  margin-top: $header--height;
+  min-height: $todo__container--height;
+  max-height: $todo__container--height;
+  .todo {
+    @include box-shadow($color-dark);
+    min-width: 15vw;
+    max-width: 15vw;
+    min-height: 25%;
+    padding: $space-s;
+    background: $color-dark;
+    border-radius: $border-radius;
+    color: $color-white;
+    margin: $space-xs $space-s $space-xs 0;
+    &:hover {
+      @include box-shadow($color-mid--dark);
+      background: $color-mid--dark;
+    }
+    * {
+      margin-bottom: $space-xs;
+    }
+    &__title {
+      text-transform: capitalize;
+      font-variant: small-caps;
+      font-size: 2rem;
+      text-align: center;
+    }
+    &__dateCreated {
+      // font-style: italic;
+      font-size: 0.85rem;
+      text-align: center;
+      color: $color-mid--bright;
+      opacity: 0.5;
+    }
+    &__completed {
+      @include box-shadow();
+      border-radius: $border-radius;
+      overflow: auto;
+      width: 100%;
+      padding: 0;
+      label {
+        display: block;
+        background-color: $color-checkboxComplete--open;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        &:hover {
+          @include box-shadow($color-checkboxComplete--done);
+          background: $color-checkboxComplete--done;
+          transform: translateY(1px);
+        }
+      }
+      label span {
+        display: block;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        padding: $space-xxs;
+        margin: 0;
+        position: relative;
+        top: -0.1rem;
+      }
+      label input {
+        position: absolute;
+        top: -20px;
+        background: transparent;
+      }
+      input:checked + span {
+        @include box-shadow($color-checkboxComplete--done);
+        background: $color-checkboxComplete--done;
+      }
+      div label input {
+        margin-right: 100px;
+      }
     }
   }
 }
