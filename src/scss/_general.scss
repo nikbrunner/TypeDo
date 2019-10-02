@@ -6,7 +6,8 @@
 @import "fonts";
 
 html,
-body {
+body,
+#output {
   height: 100%;
   background: $color-white;
 }
@@ -113,7 +114,7 @@ body {
       line-height: $header__input--height;
       &:focus {
         filter: drop-shadow(0 0 0.5rem $color-bright);
-        color: $color-mid--bright;
+        color: $color-dark;
       }
     }
     button {
@@ -126,21 +127,33 @@ body {
 
 .todo__container {
   @include flex(column wrap, flex-start, flex-start, center);
-  // @include grid(
-  //   repeat(auto-fit, minmax(10rem, 0.25fr)),
-  //   $space-m,
-  //   1fr 1fr 1fr,
-  //   $space-m
-  // );
   min-width: 100%;
   padding: $space-s $space-m;
   margin-top: $header--height;
   min-height: $todo__container--height;
   max-height: $todo__container--height;
+  &__header {
+    @include box-shadow();
+    min-width: 20vw;
+    max-width: 20vw;
+    background: $color-mid--dark;
+    color: $color-white;
+    margin: $space-xs $space-s $space-xs 0;
+    padding: $space-s;
+    border-radius: $border-radius;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    font-size: 2rem;
+    text-align: center;
+    h2 {
+      position: relative;
+      top: -0.25rem;
+    }
+  }
   .todo {
     @include box-shadow($color-dark);
-    min-width: 15vw;
-    max-width: 15vw;
+    min-width: 20vw;
+    max-width: 20vw;
     min-height: 25%;
     padding: $space-s;
     background: $color-dark;
@@ -161,11 +174,15 @@ body {
       text-align: center;
     }
     &__dateCreated {
-      // font-style: italic;
+      font-family: "Fira Mono", monospace;
       font-size: 0.85rem;
       text-align: center;
       color: $color-mid--bright;
       opacity: 0.5;
+    }
+    &__note {
+      text-align: center;
+      margin-bottom: $space-m;
     }
     &__completed {
       @include box-shadow();

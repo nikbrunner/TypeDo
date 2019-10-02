@@ -31,7 +31,11 @@ let todoCollection;
 const init = () => {
   fs.readFile("./db/collection_nibru.json", "utf-8", (err, data) => {
     if (err) console.log(err);
-    todoCollection = JSON.parse(data);
+    if (data == undefined) {
+      writeTodoCollectionFile("nibru", "{}");
+    } else {
+      todoCollection = JSON.parse(data);
+    }
   });
 };
 
@@ -40,14 +44,12 @@ init();
 // ! Routes
 server.post("/readTodoCollection", (req, res) => {
   const userId = req.body.userId;
-  console.log(todoCollection);
   res.send(todoCollection);
 });
 
 server.post("/createTask", (req, res) => {
   // https://stackoverflow.com/questions/31264153/assign-value-from-successful-promise-resolve-to-external-variable
   const command = new Command(req.body.command);
-  // const command = req.body.command;
 
   const todo = new Todo(
     command,
@@ -59,7 +61,12 @@ server.post("/createTask", (req, res) => {
 
   writeTodoCollectionFile("nibru", todoCollection)
     .then(() => readTodoCollectionFile("nibru"))
-    .then(data => res.send(data))
+    .then(data => {
+      // console.log(data);
+      todoCollection = JSON.parse(data);
+      res.send(data);
+    })
+
     .catch(err => console.log(err));
 });
 
