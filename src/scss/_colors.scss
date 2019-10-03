@@ -1,8 +1,10 @@
 $color-base: #1089ff;
+// $color-base: #6f9fac;
+$color-base: #4aa4ca;
 
 $color-accent: saturate(
-  adjust-color(complement($color-base), $hue: 15deg),
-  100%
+    adjust-color(complement($color-base), $hue: 15deg),
+    100%
 );
 $color-white: scale-color($color-base, $lightness: 90%);
 $color-bright: scale-color($color-base, $lightness: 50%);
@@ -12,9 +14,4 @@ $color-mid--dark: scale-color($color-base, $lightness: -25%);
 $color-dark: scale-color($color-base, $lightness: -75%);
 
 $color-checkboxComplete--open: $color-mid--dark;
-$color-checkboxComplete--done: adjust-color(
-  $color-accent,
-  $hue: 65deg,
-  $saturation: -35%,
-  $lightness: -25%
-);
+$color-checkboxComplete--done: $color-accent;

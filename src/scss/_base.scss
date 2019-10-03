@@ -1,4 +1,5 @@
 @import '../../node_modules/normalize.css/normalize.css';
+@import 'colors';
 
 * {
     -webkit-font-smoothing: antialiased;
@@ -6,4 +7,16 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+html {
+    overflow: scroll;
+    // overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $color-mid--dark;
 }
