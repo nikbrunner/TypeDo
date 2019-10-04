@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node index.js",
         "dev": "npm run server & rm -rf - public/ & npm run bundle",
-        "server": "nodemon index.js",
+        "server": "nodemon index.js --ignore db/",
         "bundle": "parcel src/index.html -d public",
         "public": "rm -rf public/ & parcel build src/index.html -d public"
     },

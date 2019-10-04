@@ -71,9 +71,9 @@ export const processCommand = (input, userId) => {
     })
   });
 
-  fetch(commandPrompt)
-    .then(res => res.json(), err => console.log(err))
-    .then(() => readTodoCollection("nibru"));
+  fetch(commandPrompt).then(res => res.json(), err => console.log(err));
+
+  readTodoCollection("nibru");
 };
 
 export const emptyAndFocusTarget = target => {

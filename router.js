@@ -9,11 +9,6 @@ router.use(bodyParser.json());
 
 let todoCollection_buffer;
 
-// define the home page route
-// router.get("/", function(req, res) {
-//   res.send("Birds home page");
-// });
-
 router.post("/readTodoCollection", (req, res) => {
   const userId = req.body.userId;
   serverFunctions
@@ -31,12 +26,8 @@ router.post("/processCommand", (req, res) => {
 
   switch (command.cmd) {
     case "-td":
-      /*
-       * Create a new 'Todo',
-       * write to 'todoCollection_user' File,
-       * read again
-       * and send back to client
-       */
+      // Create a new 'Todo' & write to 'todoCollection_user' File
+
       const todo = new Todo(
         command,
         serverFunctions.calculateClientIdBasedOnListLength(
@@ -53,26 +44,13 @@ router.post("/processCommand", (req, res) => {
 
       serverFunctions
         .writeTodoCollectionFile(userId, todoCollection_buffer)
-        .then(() => serverFunctions.readTodoCollectionFile(userId))
-        .then(data => {
-          todoCollection_buffer = JSON.parse(data);
-          res.send(todoCollection_buffer);
-        })
         .catch(err => console.log(err));
       break;
     case "-xx":
-      /*
-       * Empty the collection file,
-       * read again
-       * and send back to client
-       */
+      //  Empty the collection file
+
       serverFunctions
         .writeTodoCollectionFile(userId, {})
-        .then(() => serverFunctions.readTodoCollectionFile(userId))
-        .then(data => {
-          todoCollection_buffer = JSON.parse(data);
-          res.send(todoCollection_buffer);
-        })
         .catch(err => console.log(err));
       break;
     default:
