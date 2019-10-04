@@ -1,88 +1,95 @@
 // https://devcenter.heroku.com/articles/getting-started-with-nodejs
 
-// ! ImportPackages
+// ! === IMPORT NPM
 // const router = require("./routes/routes.js");
 const chalk = require("chalk");
 const bodyParser = require("body-parser");
-const fs = require("fs");
-const uuidv4 = require("uuid/v4");
 const moment = require("moment");
 
-// ! Import own files
+// ! === IMPORT OWN FILES
 const {Command, Todo} = require("./lib/classConstructors.js");
-const {
-  calculateClientIdBasedOnListLength,
-  checkForExistingListsAndPushTodoToTarget,
-  writeTodoCollectionFile,
-  readTodoCollectionFile
-} = require("./lib/serverFunctions.js");
+const serverFunctions = require("./lib/serverFunctions.js");
 
-// ! Setup Static 'Express' Server
+// ! === EXPRESS SERVER
 const express = require("express");
 const server = express();
 const PORT = 5000;
 server.use(express.static("public"));
 server.use(bodyParser.json());
 
-// ! Variables
-let todoCollection;
+// ! === BUFFER
+let todoCollection_buffer;
 
-// ! Read collection File on load
-const init = () => {
-  fs.readFile("./db/collection_nibru.json", "utf-8", (err, data) => {
-    if (err) console.log(err);
-    if (data == undefined) {
-      writeTodoCollectionFile("nibru", "{}");
-    } else {
-      todoCollection = JSON.parse(data);
-    }
-  });
-};
-
-init();
-
-// ! Routes
+// ! === ROUTES
 server.post("/readTodoCollection", (req, res) => {
   const userId = req.body.userId;
-  res.send(todoCollection);
+  serverFunctions
+    .readTodoCollectionFile(userId)
+    .then(data => {
+      todoCollection_buffer = JSON.parse(data);
+      res.send(todoCollection_buffer);
+    })
+    .catch(err => console.log(err));
 });
 
-server.post("/createTask", (req, res) => {
-  // ? Is create Task really a good name here?
-  // ? If generalize this rout as a processCommand route..
-  // ? ..i could work with a big switch statement here
-
+server.post("/processCommand", (req, res) => {
   const command = new Command(req.body.command);
+  const userId = req.body.userId;
+  console.log(command.list);
 
-  const todo = new Todo(
-    command,
-    calculateClientIdBasedOnListLength(todoCollection, command.list),
-    uuidv4()
-  );
+  switch (command.cmd) {
+    case "-td":
+      /*
+       * Create a new 'Todo',
+       * write to 'todoCollection_user' File,
+       * read again
+       * and send back to client
+       */
+      const todo = new Todo(
+        command,
+        serverFunctions.calculateClientIdBasedOnListLength(
+          todoCollection_buffer,
+          command.list
+        )
+      );
 
-  checkForExistingListsAndPushTodoToTarget(todoCollection, command.list, todo);
+      serverFunctions.checkForExistingListsAndPushTodoToTarget(
+        todoCollection_buffer,
+        command.list,
+        todo
+      );
 
-  if (command.cmd === "-td") {
-    writeTodoCollectionFile("nibru", todoCollection)
-      .then(() => readTodoCollectionFile("nibru"))
-      .then(data => {
-        // console.log(data);
-        todoCollection = JSON.parse(data);
-        res.send(data);
-      })
-      .catch(err => console.log(err));
-  } else if (command.cmd === "-xx") {
-    writeTodoCollectionFile("nibru", {})
-      .then(() => readTodoCollectionFile("nibru"))
-      .then(data => {
-        todoCollection = JSON.parse(data);
-        res.send(data);
-      })
-      .catch(err => console.log(err));
+      serverFunctions
+        .writeTodoCollectionFile(userId, todoCollection_buffer)
+        .then(() => serverFunctions.readTodoCollectionFile(userId))
+        .then(data => {
+          todoCollection_buffer = JSON.parse(data);
+          res.send(todoCollection_buffer);
+        })
+        .catch(err => console.log(err));
+      break;
+    case "-xx":
+      /*
+       * Empty the collection file,
+       * read again
+       * and send back to client
+       */
+      serverFunctions
+        .writeTodoCollectionFile(userId, {})
+        .then(() => serverFunctions.readTodoCollectionFile(userId))
+        .then(data => {
+          todoCollection_buffer = JSON.parse(data);
+          res.send(todoCollection_buffer);
+        })
+        .catch(err => console.log(err));
+      break;
+    default:
+      res.send({title: "No valid input!"});
+      break;
   }
 });
 
-  // Setup Server Listen
+// ! === SERVER LISTEN
 server.listen(PORT, err => {
   console.log(
     err ||

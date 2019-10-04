@@ -1,28 +1,36 @@
-import {
-  readTodoCollection,
-  createTask,
-  emptyAndFocusTarget,
-  createDOMElement
-} from "./clientFunctions.js";
+// ! === IMPORTS
+import * as clientFunctions from "./clientFunctions.js";
 
-// DOM Elements
+// ! === DOM ELEMENTS
 const UI_inputCommand = document.querySelector("#UI_inputCommand");
+const user = "nibru";
 
+// ! === INIT FUNCTION TO SET UP STARTUP
 const init = () => {
-  readTodoCollection("nibru");
-  emptyAndFocusTarget(UI_inputCommand);
+  clientFunctions.readTodoCollection(user);
+  clientFunctions.emptyAndFocusTarget(UI_inputCommand);
 };
 
 init();
 
-// Event Listeners
+// ! === EVENT LISTENERS
+/* This first Event Listener is the essence of the app
+ * When pressing 'Enter' process the string from 'UI_inputCommand'..
+ * .. and send it with a function to the server to..
+ * .. destructurize the string and interpret the:
+ *   - list
+ *   - command
+ *   - todo
+ *   - note
+ */
 UI_inputCommand.addEventListener("keydown", e => {
   if (e.key === "Enter") {
-    createTask(UI_inputCommand);
-    emptyAndFocusTarget(UI_inputCommand);
+    clientFunctions.processCommand(UI_inputCommand, user);
+    clientFunctions.emptyAndFocusTarget(UI_inputCommand);
   }
 });
 
+// Toggle/Untoggle the command input with ESC or INSERT
 window.addEventListener("keyup", e => {
   if (e.key == "Insert" || e.key == "Escape") {
     if (UI_inputCommand === document.activeElement) {
