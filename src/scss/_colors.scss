@@ -1,6 +1,6 @@
-$color-base: #1089ff;
-// $color-base: #6f9fac;
-$color-base: #4aa4ca;
+// $color-base: #1089ff;
+$color-base: #6f9fac;
+// $color-base: #4aa4ca;
 
 $color-accent: saturate(
     adjust-color(complement($color-base), $hue: 15deg),
