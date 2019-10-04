@@ -47,6 +47,7 @@ router.post("/processCommand", (req, res) => {
         .catch(err => console.log(err));
       break;
     case "-xx":
+      // console.log(command.test);
       //  Empty the collection file
 
       serverFunctions
