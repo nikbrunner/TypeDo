@@ -1,15 +1,15 @@
-const {Command, Todo} = require("./lib/classConstructors.js");
-const serverFunctions = require("./lib/serverFunctions.js");
+const { Command, Todo } = require('./lib/classConstructors.js');
+const serverFunctions = require('./lib/serverFunctions.js');
 
-const bodyParser = require("body-parser");
-const express = require("express");
+const bodyParser = require('body-parser');
+const express = require('express');
 const router = express.Router();
 
 router.use(bodyParser.json());
 
 let todoCollection_buffer;
 
-router.post("/readTodoCollection", (req, res) => {
+router.post('/readTodoCollection', (req, res) => {
   const userId = req.body.userId;
   serverFunctions
     .readTodoCollectionFile(userId)
@@ -20,12 +20,12 @@ router.post("/readTodoCollection", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.post("/processCommand", (req, res) => {
+router.post('/processCommand', (req, res) => {
   const command = new Command(req.body.command);
   const userId = req.body.userId;
 
   switch (command.cmd) {
-    case "-td":
+    case '-td':
       // Create a new 'Todo' & write to 'todoCollection_user' File
 
       const todo = new Todo(
@@ -44,9 +44,10 @@ router.post("/processCommand", (req, res) => {
 
       serverFunctions
         .writeTodoCollectionFile(userId, todoCollection_buffer)
+        .then(() => res.send({ msg: 'ok, data written' }))
         .catch(err => console.log(err));
       break;
-    case "-xx":
+    case '-xx':
       // console.log(command.test);
       //  Empty the collection file
 
@@ -55,7 +56,7 @@ router.post("/processCommand", (req, res) => {
         .catch(err => console.log(err));
       break;
     default:
-      res.send({title: "No valid input!"});
+      res.send({ title: 'No valid input!' });
       break;
   }
 });

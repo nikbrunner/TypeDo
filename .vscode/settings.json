@@ -1,6 +1,4 @@
 {
-    "cSpell.ignoreWords": [
-        "do",
-        "type"
-    ]
+  "cSpell.ignoreWords": ["do", "type"],
+  "prettier.tabWidth": 2
 }

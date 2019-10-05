@@ -1,32 +1,19 @@
 // https://devcenter.heroku.com/articles/getting-started-with-nodejs
 
-// ! === IMPORT NPM
-const chalk = require("chalk");
-const moment = require("moment");
+// ! === IMPORT OWN FILES
+const serverFunctions = require('./lib/serverFunctions.js');
 
 // ! === EXPRESS SERVER
-const express = require("express");
+const express = require('express');
 const server = express();
-const PORT = 5000;
-server.use(express.static("public"));
+const port = 5000;
+server.use(express.static('public'));
 
 // ! === EXPRESS ROUTER
-const router = require("./router");
-server.use("/", router);
+const router = require('./router');
+server.use('/', router);
 
 // ! === SERVER LISTEN
-server.listen(PORT, err => {
-  console.log(
-    err ||
-      chalk.whiteBright("::: ") +
-        chalk.greenBright.bold(`Server running on `) +
-        chalk.cyanBright.bold(`Port ${PORT} `) +
-        chalk.magentaBright.bold(`since ${moment().format("LT")} `) +
-        chalk.whiteBright(" :::")
-  );
-  console.log(
-    chalk.whiteBright("::: ") +
-      chalk.yellowBright.bold("         Use this port as client!         ") +
-      chalk.whiteBright(" :::")
-  );
+server.listen(port, err => {
+  serverFunctions.notifyServerIsRunning(port, err);
 });
