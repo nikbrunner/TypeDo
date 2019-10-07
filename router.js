@@ -23,18 +23,29 @@ router.post('/readTodoCollection', (req, res) => {
 router.post('/processCommand', (req, res) => {
   const command = new Command(req.body.command);
   const userId = req.body.userId;
-  const commandList = {
+
+  const keywords = {
     addTodo: '-td',
     remove: '-rm',
-    clear: '-xx',
-    selfKeyword: 'self',
+    selectAllTodosKeyword: 'all',
+    selectAllListsKeyword: '*',
+    selectSelfKeyword: 'self',
   };
 
   switch (true) {
-    // ! Remove list from collection file
+    //  ! Remove ALL lists from collection file
+    case command.list === keywords.selectAllListsKeyword &&
+      command.cmd === keywords.remove &&
+      command.title === keywords.selectSelfKeyword:
+      serverFunctions
+        .writeTodoCollectionFile(userId, {})
+        .catch(err => console.log(err));
+      break;
+
+    // ! Remove ONE list from collection file
     case command.list !== undefined &&
-      command.cmd === commandList.remove &&
-      command.title === commandList.selfKeyword:
+      command.cmd === keywords.remove &&
+      command.title === keywords.selectSelfKeyword:
       serverFunctions.removeListFromTarget(
         todoCollection_buffer,
         command.list
@@ -46,9 +57,24 @@ router.post('/processCommand', (req, res) => {
         .catch(err => console.log(err));
       break;
 
-    // ! Remove entry from collection file
+    // ! Remove ALL todos from a list
     case command.list !== undefined &&
-      command.cmd === commandList.remove &&
+      command.cmd === keywords.remove &&
+      command.title === keywords.selectAllTodosKeyword:
+      serverFunctions.removeAllTodosFromTarget(
+        todoCollection_buffer,
+        command.list
+      );
+
+      serverFunctions
+        .writeTodoCollectionFile(userId, todoCollection_buffer)
+        .then(() => res.send({ msg: 'ok, data written' }))
+        .catch(err => console.log(err));
+      break;
+
+    // ! Remove ONE todo from a list
+    case command.list !== undefined &&
+      command.cmd === keywords.remove &&
       command.title !== undefined:
       serverFunctions.removeTodoFromTarget(
         todoCollection_buffer,
@@ -62,9 +88,9 @@ router.post('/processCommand', (req, res) => {
         .catch(err => console.log(err));
       break;
 
-    // ! Create a new 'Todo' & write to 'todoCollection_user' file
+    // ! Create ONE todo in a list
     case command.list !== undefined &&
-      command.cmd === commandList.addTodo &&
+      command.cmd === keywords.addTodo &&
       command.title !== undefined:
       const todo = new Todo(
         command,
@@ -86,16 +112,6 @@ router.post('/processCommand', (req, res) => {
         .catch(err => console.log(err));
       break;
 
-    //  ! Empty the whole collection file
-    case command.list === undefined &&
-      command.cmd === commandList.clear &&
-      command.title === undefined:
-      command.printCommand();
-
-      serverFunctions
-        .writeTodoCollectionFile(userId, {})
-        .catch(err => console.log(err));
-      break;
     default:
       console.log('No valid input');
       break;
