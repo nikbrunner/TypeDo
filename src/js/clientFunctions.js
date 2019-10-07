@@ -51,23 +51,14 @@ export const renderTodos = todoCollection => {
       },
     });
 
-    todoCollection[list].forEach(todo => {
+    todoCollection[list].forEach((todo, index) => {
       createDOMElement({
         content: `
+          <p class="todo__clientId">ID <span>${index}</p>
           <h3 class="todo__title">${todo.title}</h3>
-          <p class="todo__note"></span>${
-            todo.note === undefined ? '' : todo.note
-          }</p>  
-          <div class="todo__btnToComplete"> 
-            <label>
-              <input type="checkbox" ${todo.completed ? 'checked' : ''}>
-              <span>${todo.completed ? 'Finally!' : 'Dew it!'}</span>
-            </label>
-          </div>
-          <p class="todo__meta">
-            <span class="todo__clientId">ID ${todo.clientId}</span> -
-            <span class="todo__dateCreated">${todo.dateCreated}</span>
-          </p>
+          <p class="todo__note">
+            ${todo.note === undefined ? '' : todo.note}</p>
+          <p class="todo__dateCreated">${todo.dateCreated}</p>
         `,
         target: todos__container,
         classes: ['todo'],

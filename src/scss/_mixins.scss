@@ -1,5 +1,5 @@
-@import "variables";
-@import "colors";
+@import 'variables';
+@import 'colors';
 
 @mixin grid($columns, $column-gap, $rows, $row-gap) {
   display: grid;
@@ -21,7 +21,7 @@
   background: linear-gradient($dir, $color1, $color2);
 }
 @mixin box-shadow($shadow--color: #0f0f0f33) {
-  box-shadow: $shadow--color 0px 0px 0px 1px, $shadow--color 0px 2px 4px;
+  box-shadow: $shadow--color 0px 2px 4px;
 }
 @mixin box-shadow--inset($shadow--color: #0f0f0f33) {
   box-shadow: $shadow--color 0px 0px 0px 1px inset,

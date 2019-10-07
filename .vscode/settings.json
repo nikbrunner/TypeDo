@@ -3,5 +3,6 @@
   "prettier.tabWidth": 2,
   "editor.tabSize": 2,
   "prettier.printWidth": 75,
-  "editor.foldingStrategy": "indentation"
+  "editor.foldingStrategy": "indentation",
+  "emmet.includeLanguages": { "javascript": "html" }
 }

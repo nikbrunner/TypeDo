@@ -132,7 +132,8 @@ body {
 // ! Todo Container
 
 .todos__container {
-  $column-width: 20%;
+  $column-width: 20rem;
+
   @include flex(column wrap, flex-start, flex-start, center);
   min-width: 100%;
   padding: $space-s $space-m;
@@ -156,11 +157,12 @@ body {
   }
   .todo {
     @include box-shadow($color-dark);
-    @include flex(column nowrap, center, center, center);
-    flex-grow: 1;
+    // @include flex(column nowrap, center, center, center);
+    @include grid(1fr 1fr 1fr, 0, 0.5fr 1fr 0.75fr 0.5fr, $space-s);
+    // flex-grow: 1;
     min-width: $column-width;
     max-width: $column-width;
-    padding: $space-s;
+    // padding: $space-s;
     background: $color-dark;
     border-radius: $border-radius;
     color: $color-white;
@@ -172,70 +174,50 @@ body {
     * {
       margin-bottom: $space-xxs;
     }
+    &__clientId {
+      @include box-shadow();
+      @include text-shadow();
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      background: $color-mid;
+      border-radius: $border-radius 0 $border-radius 0;
+      padding: $space-xs;
+      font-family: $font-header;
+      span {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
     &__title {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
       font-family: $font-header;
       text-transform: capitalize;
+      padding: $space-xxs 0;
+      margin: 0 $space-m;
       font-weight: normal;
       font-size: 1.5rem;
       text-align: center;
-      margin-bottom: $space-xs;
+      margin-bottom: 0;
+      border-bottom: 5px solid $color-accent;
     }
     &__note {
+      grid-column: 1 / 4;
+      grid-row: 3 / 4;
       text-align: center;
-      text-transform: lowercase;
-      font-variant: small-caps;
+      padding: $space-xxs $space-m;
       line-height: 1.25rem;
       color: $color-bright;
-      margin-bottom: $space-s;
     }
-    &__btnToComplete {
-      @include box-shadow();
-      border-radius: $border-radius;
-      overflow: auto;
-      width: 75%;
-      padding: 0;
-      margin-bottom: $space-xs;
-      label {
-        display: block;
-        background-color: $color-checkboxComplete--open;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        &:hover {
-          @include box-shadow($color-checkboxComplete--done);
-          background: $color-checkboxComplete--done;
-          transform: translateY(1px);
-        }
-      }
-      label span {
-        display: block;
-        text-align: center;
-        height: 100%;
-        width: 100%;
-        padding: $space-xxs;
-        margin: 0;
-        position: relative;
-        top: -0.1rem;
-      }
-      label input {
-        position: absolute;
-        top: -20px;
-        background: transparent;
-      }
-      input:checked + span {
-        @include box-shadow($color-checkboxComplete--done);
-        background: $color-checkboxComplete--done;
-      }
-      div label input {
-        margin-right: 100px;
-      }
-    }
-    &__meta {
-      font-family: 'Fira Mono', monospace;
-      font-size: 0.7rem;
+    &__dateCreated {
+      @include box-shadow--inset();
+      grid-column: 3 / 4;
+      grid-row: 4 / 5;
       text-align: center;
-      color: $color-mid--bright;
-      opacity: 0.5;
+      padding: $space-xs;
+      background: $color-mid--dark;
+      margin-bottom: 0;
+      border-radius: $border-radius 0 $border-radius 0;
     }
   }
 }
