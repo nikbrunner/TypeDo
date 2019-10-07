@@ -132,6 +132,7 @@ body {
 // ! Todo Container
 
 .todos__container {
+  $column-width: 20%;
   @include flex(column wrap, flex-start, flex-start, center);
   min-width: 100%;
   padding: $space-s $space-m;
@@ -140,8 +141,8 @@ body {
   max-height: $todo__container--height;
   &__header {
     @include box-shadow();
-    min-width: 10vw;
-    max-width: 10vw;
+    min-width: $column-width;
+    max-width: $column-width;
     background: $color-mid--dark;
     color: $color-white;
     margin: $space-xs $space-s $space-xs 0;
@@ -157,9 +158,8 @@ body {
     @include box-shadow($color-dark);
     @include flex(column nowrap, center, center, center);
     flex-grow: 1;
-    min-width: 10vw;
-    max-width: 10vw;
-    max-height: 20vh;
+    min-width: $column-width;
+    max-width: $column-width;
     padding: $space-s;
     background: $color-dark;
     border-radius: $border-radius;

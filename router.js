@@ -24,9 +24,12 @@ router.post('/processCommand', (req, res) => {
   const command = new Command(req.body.command);
   const userId = req.body.userId;
 
-  switch (command.cmd) {
-    case '-td':
+  switch (true) {
+    case command.list !== undefined &&
+      command.cmd === '-td' &&
+      command.title !== undefined:
       // Create a new 'Todo' & write to 'todoCollection_user' File
+      command.printCommand();
 
       const todo = new Todo(
         command,
@@ -47,16 +50,19 @@ router.post('/processCommand', (req, res) => {
         .then(() => res.send({ msg: 'ok, data written' }))
         .catch(err => console.log(err));
       break;
-    case '-xx':
-      // console.log(command.test);
-      //  Empty the collection file
+    case command.list === undefined &&
+      command.cmd === '-xx' &&
+      command.title === undefined:
+      //  Empty the whole collection file
+
+      command.printCommand();
 
       serverFunctions
         .writeTodoCollectionFile(userId, {})
         .catch(err => console.log(err));
       break;
     default:
-      res.send({ title: 'No valid input!' });
+      console.log('No valid input');
       break;
   }
 });
