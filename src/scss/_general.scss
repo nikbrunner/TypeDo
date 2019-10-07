@@ -1,9 +1,9 @@
-@import "base";
-@import "uni-space";
-@import "variables";
-@import "colors";
-@import "mixins";
-@import "fonts";
+@import 'base';
+@import 'uni-space';
+@import 'variables';
+@import 'colors';
+@import 'mixins';
+@import 'fonts';
 
 ::selection {
   background: $color-accent;
@@ -140,8 +140,8 @@ body {
   max-height: $todo__container--height;
   &__header {
     @include box-shadow();
-    min-width: 20vw;
-    max-width: 20vw;
+    min-width: 10vw;
+    max-width: 10vw;
     background: $color-mid--dark;
     color: $color-white;
     margin: $space-xs $space-s $space-xs 0;
@@ -156,10 +156,10 @@ body {
   .todo {
     @include box-shadow($color-dark);
     @include flex(column nowrap, center, center, center);
-    // flex-grow: 1;
-    min-width: 20vw;
-    max-width: 20vw;
-    // min-height: 10%;
+    flex-grow: 1;
+    min-width: 10vw;
+    max-width: 10vw;
+    max-height: 20vh;
     padding: $space-s;
     background: $color-dark;
     border-radius: $border-radius;
@@ -231,7 +231,7 @@ body {
       }
     }
     &__meta {
-      font-family: "Fira Mono", monospace;
+      font-family: 'Fira Mono', monospace;
       font-size: 0.7rem;
       text-align: center;
       color: $color-mid--bright;
