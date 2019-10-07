@@ -2,5 +2,6 @@
   "cSpell.ignoreWords": ["do", "type"],
   "prettier.tabWidth": 2,
   "editor.tabSize": 2,
-  "prettier.printWidth": 75
+  "prettier.printWidth": 75,
+  "editor.foldingStrategy": "indentation"
 }

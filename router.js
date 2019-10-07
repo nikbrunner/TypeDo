@@ -25,15 +25,13 @@ router.post('/processCommand', (req, res) => {
   const userId = req.body.userId;
 
   switch (true) {
+    // ! Create a new 'Todo' & write to 'todoCollection_user' file
     case command.list !== undefined &&
       command.cmd === '-td' &&
       command.title !== undefined:
-      // Create a new 'Todo' & write to 'todoCollection_user' File
-      command.printCommand();
-
       const todo = new Todo(
         command,
-        serverFunctions.calculateClientIdBasedOnListLength(
+        serverFunctions.calculateClientIdFromTarget(
           todoCollection_buffer,
           command.list
         )
@@ -50,11 +48,58 @@ router.post('/processCommand', (req, res) => {
         .then(() => res.send({ msg: 'ok, data written' }))
         .catch(err => console.log(err));
       break;
+
+    // ! Remove entry from collection file
+    case command.list !== undefined &&
+      command.cmd === '-rm' &&
+      command.title !== undefined:
+      serverFunctions.removeTodoFromTarget(
+        todoCollection_buffer,
+        command.list,
+        command.title
+      );
+
+      serverFunctions
+        .writeTodoCollectionFile(userId, todoCollection_buffer)
+        .then(() => res.send({ msg: 'ok, data written' }))
+        .catch(err => console.log(err));
+      break;
+    // ! Remove list from collection file
+    case command.list !== undefined &&
+      command.cmd === '-rm' &&
+      command.title === undefined:
+      // let confirmation = prompt(
+      //   `Do you really want to delete this list? \n${command.list} \n'Please type Y or N'`
+      // );
+      // if (confirmation.toLowerCase() === 'y') {
+      //   serverFunctions.removeListFromTarget(
+      //     todoCollection_buffer,
+      //     command.list
+      //   );
+
+      //   serverFunctions
+      //     .writeTodoCollectionFile(userId, todoCollection_buffer)
+      //     .then(() => res.send({ msg: 'ok, data written' }))
+      //     .catch(err => console.log(err));
+      //   } else if (confirmation.toLowerCase() === 'n') {
+      //     // do nothing
+      //   }
+
+      serverFunctions.removeListFromTarget(
+        todoCollection_buffer,
+        command.list
+      );
+
+      serverFunctions
+        .writeTodoCollectionFile(userId, todoCollection_buffer)
+        .then(() => res.send({ msg: 'ok, data written' }))
+        .catch(err => console.log(err));
+      break;
+
+    //  ! Empty the whole collection file
     case command.list === undefined &&
       command.cmd === '-xx' &&
       command.title === undefined:
-      //  Empty the whole collection file
-
       command.printCommand();
 
       serverFunctions
