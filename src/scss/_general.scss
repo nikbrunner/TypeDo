@@ -145,8 +145,8 @@ body {
     @include box-shadow();
     min-width: $column-width;
     max-width: $column-width;
-    background: $color-mid--dark;
-    color: $color-white;
+    background: $color-dark;
+    color: $color-accent;
     margin: $space-xs $space-s $space-xs 0;
     padding: $space-s;
     border-radius: $border-radius;
@@ -166,16 +166,17 @@ body {
     border-radius: $border-radius;
     color: $color-white;
     margin: $space-xs $space-s $space-xs 0;
+    &--noNote {
+      background: scale-color($color-dark, $lightness: 10%);
+    }
     &:hover {
       opacity: 0.9;
     }
     &__title {
       font-family: $font-header;
-      // text-transform: capitalize;
       padding-bottom: $space-xs;
       margin: $space-s $space-s $space-xs;
-      font-weight: normal;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       text-align: left;
       align-self: flex-start;
       border-bottom: 3px solid $color-accent;
