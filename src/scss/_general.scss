@@ -179,6 +179,11 @@ body {
       text-align: left;
       align-self: flex-start;
       border-bottom: 3px solid $color-accent;
+      &--noNote {
+        border-bottom: none;
+        padding: $space-xs;
+        border-left: 3px solid $color-accent;
+      }
     }
     &__note {
       align-self: flex-start;

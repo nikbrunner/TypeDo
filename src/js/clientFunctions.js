@@ -17,14 +17,13 @@ export const readTodoCollection = userId => {
       const response = await fetch(address);
       const json = await response.json();
       renderTodos(json);
-      // let containerPositions = clientFunctions.scanTodosContainersAndReturnPositions();
     } catch (e) {
       console.log('There was an error when reading the Todo Collection');
       console.log(e);
     }
   };
 
-  request(readTodoCollection);
+  request(readTodoCollection).then(() => scanTodosContainers());
 };
 
 export const renderTodos = todoCollection => {
@@ -55,7 +54,9 @@ export const renderTodos = todoCollection => {
     todoCollection[list].forEach((todo, index) => {
       createDOMElement({
         content: `
-        <h3 class="todo__title">${todo.title}</h3>
+        <h3 class="todo__title ${
+          todo.note === undefined ? 'todo__title--noNote' : ''
+        }">${todo.title}</h3>
         <p class="todo__note ${todo.note === undefined ? 'empty' : ''}">
         ${todo.note === undefined ? '' : todo.note}</p>
         <div class="todo__meta">
@@ -122,7 +123,7 @@ export const createDOMElement = ({
   return newDOMElement;
 };
 
-export const scanTodosContainersAndReturnPositions = () => {
+export const scanTodosContainers = () => {
   const header = document.querySelector('.header');
   let containerPositions = [];
   let todoContainers = [...document.querySelectorAll('.todos__container')];
@@ -130,5 +131,6 @@ export const scanTodosContainersAndReturnPositions = () => {
     let containerPosition = container.offsetTop - header.clientHeight;
     containerPositions.push(containerPosition);
   });
-  return containerPositions;
+  window.containerPositions = containerPositions;
+  // console.log(window.containerPositions);
 };
