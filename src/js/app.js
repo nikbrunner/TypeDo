@@ -30,13 +30,20 @@ UI_inputCommand.addEventListener('keydown', e => {
   }
 });
 
+// window.addEventListener('keyup', e => {
+//   console.log(e);
+
+//   e.preventDefault();
+// })
+
 // Toggle/Un-toggle the command input with ESC or INSERT
 window.addEventListener('keyup', e => {
-  if (e.key == 'Insert' || e.key == 'Escape') {
+  if (e.key == 'Control' && e.key == 'Insert') {
     if (UI_inputCommand === document.activeElement) {
       UI_inputCommand.blur();
     } else {
       UI_inputCommand.focus();
     }
   }
+  // e.preventDefault();
 });

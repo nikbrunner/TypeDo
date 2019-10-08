@@ -75,20 +75,35 @@ body {
             margin-right: 0;
           }
         }
-        fieldset {
-          outline: none;
-          border: none;
-          padding: 0;
+        a {
+          line-height: calc(#{$header__brand--height} * 0.75);
+          #i-github {
+            height: 1rem;
+            cursor: pointer;
+            path {
+              fill: $color-mid--bright;
+            }
+            &:hover {
+              path {
+                fill: $color-white;
+              }
+            }
+          }
         }
-        input {
-          @include inputStyle();
-          padding-left: $space-xs;
-          min-width: 3rem;
-          max-width: 7.5rem;
-        }
-        button {
-          @include btnStyle();
-        }
+        // fieldset {
+        //   outline: none;
+        //   border: none;
+        //   padding: 0;
+        // }
+        // input {
+        //   @include inputStyle();
+        //   padding-left: $space-xs;
+        //   min-width: 3rem;
+        //   max-width: 7.5rem;
+        // }
+        // button {
+        //   @include btnStyle();
+        // }
       }
     }
   }
@@ -171,17 +186,17 @@ body {
     &__title {
       font-family: $font-header;
       text-transform: capitalize;
-      padding: 0 $space-m $space-xs;
-      margin: $space-s $space-m $space-s;
+      padding: 0 $space-xs $space-xxs;
+      margin: $space-s 0 $space-s;
       font-weight: normal;
       font-size: 1.5rem;
       text-align: center;
-      border-bottom: 5px solid $color-accent;
+      border-bottom: 1px dashed $color-accent;
     }
     &__note {
       text-align: center;
-      padding: 0 $space-m;
-      margin: 0 $space-m $space-xs;
+      padding: 0 $space-xs;
+      margin: 0 $space-m $space-s;
       line-height: 1.25rem;
       color: $color-bright;
     }
@@ -195,7 +210,7 @@ body {
     &__clientId {
       @include box-shadow--inset();
       @include text-shadow();
-      background: $color-mid--dark;
+      background: scale-color($color-dark, $lightness: 7.5%);
       border-radius: 0 $border-radius 0 $border-radius;
       padding: $space-xs;
       font-family: $font-header;
@@ -209,7 +224,7 @@ body {
       @include text-shadow();
       text-align: center;
       padding: $space-xs;
-      background: $color-mid--dark;
+      background: scale-color($color-dark, $lightness: 7.5%);
       border-radius: $border-radius 0 $border-radius 0;
     }
   }

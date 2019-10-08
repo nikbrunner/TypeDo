@@ -27,14 +27,13 @@ router.post('/processCommand', (req, res) => {
   const keywords = {
     addTodo: '-td',
     remove: '-rm',
-    selectAllTodosKeyword: 'all',
-    selectAllListsKeyword: '*',
+    selectAllKeyword: '*',
     selectSelfKeyword: 'self',
   };
 
   switch (true) {
     //  ! Remove ALL lists from collection file
-    case command.list === keywords.selectAllListsKeyword &&
+    case command.list === keywords.selectAllKeyword &&
       command.cmd === keywords.remove &&
       command.title === keywords.selectSelfKeyword:
       serverFunctions
@@ -60,7 +59,7 @@ router.post('/processCommand', (req, res) => {
     // ! Remove ALL todos from a list
     case command.list !== undefined &&
       command.cmd === keywords.remove &&
-      command.title === keywords.selectAllTodosKeyword:
+      command.title === keywords.selectAllKeyword:
       serverFunctions.removeAllTodosFromTarget(
         todoCollection_buffer,
         command.list
@@ -92,24 +91,28 @@ router.post('/processCommand', (req, res) => {
     case command.list !== undefined &&
       command.cmd === keywords.addTodo &&
       command.title !== undefined:
-      const todo = new Todo(
-        command,
-        serverFunctions.calculateClientIdFromTarget(
+      if (command.note.length > 175) {
+        // don't accept, return message
+      } else {
+        const todo = new Todo(
+          command,
+          serverFunctions.calculateClientIdFromTarget(
+            todoCollection_buffer,
+            command.list
+          )
+        );
+
+        serverFunctions.checkForExistingListsAndPushTodoToTarget(
           todoCollection_buffer,
-          command.list
-        )
-      );
+          command.list,
+          todo
+        );
 
-      serverFunctions.checkForExistingListsAndPushTodoToTarget(
-        todoCollection_buffer,
-        command.list,
-        todo
-      );
-
-      serverFunctions
-        .writeTodoCollectionFile(userId, todoCollection_buffer)
-        .then(() => res.send({ msg: 'ok, data written' }))
-        .catch(err => console.log(err));
+        serverFunctions
+          .writeTodoCollectionFile(userId, todoCollection_buffer)
+          .then(() => res.send({ msg: 'ok, data written' }))
+          .catch(err => console.log(err));
+      }
       break;
 
     default:

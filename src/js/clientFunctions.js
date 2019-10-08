@@ -58,7 +58,7 @@ export const renderTodos = todoCollection => {
         <p class="todo__note ${todo.note === undefined ? 'empty' : ''}">
         ${todo.note === undefined ? '' : todo.note}</p>
         <div class="todo__meta">
-          <p class="todo__clientId">ID <span>${index}</p>
+          <p class="todo__clientId"><span>${index}</span></p>
           <p class="todo__dateCreated">${todo.dateCreated}</p>
         </div>
         `,
@@ -121,8 +121,9 @@ export const createDOMElement = ({
   return newDOMElement;
 };
 
-export const scanListsAndAddEventlistenerToScrollWithArrowKeys = () => {
+export const scanTodoContainerToScrollWithArrowKeys = () => {
   // todo This is not functional yet and just a first concept
+
   let scrollToPoints = [];
   document.addEventListener('DOMContentLoaded', () => {
     let todoContainers = [
