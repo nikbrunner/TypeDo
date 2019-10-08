@@ -1,31 +1,32 @@
 {
-    "name": "typedo",
-    "version": "0.1.0",
-    "description": "A minimal, keyboard focused and performant todo app with multiple lists.",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js",
-        "dev": "npm run server & rm -rf - public/ & npm run bundle",
-        "server": "nodemon index.js --ignore db/",
-        "bundle": "parcel src/index.html -d public",
-        "public": "rm -rf public/ & parcel build src/index.html -d public"
-    },
-    "author": "nibru",
-    "license": "ISC",
-    "devDependencies": {
-        "@babel/core": "^7.6.2",
-        "@babel/plugin-transform-runtime": "^7.6.2",
-        "autoprefixer": "^9.6.1",
-        "body-parser": "^1.19.0",
-        "chalk": "^2.4.2",
-        "express": "^4.17.1",
-        "moment": "^2.24.0",
-        "nodemon": "^1.19.3",
-        "normalize.css": "^8.0.1",
-        "sass": "^1.22.12",
-        "uuid": "^3.3.3"
-    },
-    "dependencies": {
-        "@babel/runtime": "^7.6.2"
-    }
+  "name": "typedo",
+  "version": "0.1.0",
+  "description": "A minimal, keyboard focused and performant todo app with multiple lists.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "npm run server & rm -rf - public/ & npm run bundle",
+    "server": "nodemon index.js --ignore db/",
+    "bundle": "parcel src/index.html -d public",
+    "public": "rm -rf public/ & parcel build src/index.html -d public"
+  },
+  "author": "nibru",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "autoprefixer": "^9.6.1",
+    "body-parser": "^1.19.0",
+    "chalk": "^2.4.2",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "nodemon": "^1.19.3",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.22.12",
+    "parcel-bundler": "^1.12.4",
+    "uuid": "^3.3.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2"
+  }
 }

@@ -5,8 +5,13 @@ import * as clientFunctions from './clientFunctions.js';
 const UI_inputCommand = document.querySelector('#UI_inputCommand');
 const user = 'nibru';
 
+let position;
+let containerPositions;
+
 // ! === INIT FUNCTION TO SET UP STARTUP
 const init = () => {
+  position = 0;
+  window.scrollTo(0, position);
   clientFunctions.readTodoCollection(user);
   clientFunctions.emptyAndFocusTarget(UI_inputCommand);
 };
@@ -26,25 +31,52 @@ init();
 UI_inputCommand.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     clientFunctions.processCommand(UI_inputCommand, user);
+    containerPositions = clientFunctions.scanTodosContainersAndReturnPositions();
     clientFunctions.emptyAndFocusTarget(UI_inputCommand);
   }
 });
 
-// window.addEventListener('keyup', e => {
-//   console.log(e);
-
-//   e.preventDefault();
-// })
-
 // Toggle/Un-toggle the command input with ESC or INSERT
 window.addEventListener('keyup', e => {
-  console.log('hi');
-  // if (e.key == 'Control' && e.key == 'Insert') {
-  //   if (UI_inputCommand === document.activeElement) {
-  //     UI_inputCommand.blur();
-  //   } else {
-  //     UI_inputCommand.focus();
-  //   }
-  // }
-  // e.preventDefault();
+  // ! Toggle Console
+  if (e.ctrlKey && e.key == 'ö') {
+    if (UI_inputCommand === document.activeElement) {
+      UI_inputCommand.blur();
+    } else {
+      UI_inputCommand.focus();
+    }
+  }
+
+  // ! Scroll Down
+  if (e.altKey && e.key == 'ArrowDown') {
+    let nextPosition;
+    containerPositions = clientFunctions.scanTodosContainersAndReturnPositions();
+
+    if (position >= 0 && position < containerPositions.length - 1) {
+      nextPosition = position + 1;
+      position = nextPosition;
+    } else if (position == containerPositions.length - 1) {
+      nextPosition = 0;
+      position = 0;
+    }
+    window.scrollTo(0, containerPositions[nextPosition]);
+  }
+
+  // ! Scroll Up
+  if (e.altKey && e.key == 'ArrowUp') {
+    let prevPosition;
+    containerPositions = clientFunctions.scanTodosContainersAndReturnPositions();
+
+    if (position === 0) {
+      prevPosition = containerPositions.length - 1;
+      position = prevPosition;
+    } else if (position > 0 && position <= containerPositions.length - 1) {
+      prevPosition = position - 1;
+      position = prevPosition;
+    }
+
+    window.scrollTo(0, containerPositions[prevPosition]);
+  }
+
+  e.preventDefault();
 });

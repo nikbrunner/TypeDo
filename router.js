@@ -91,28 +91,25 @@ router.post('/processCommand', (req, res) => {
     case command.list !== undefined &&
       command.cmd === keywords.addTodo &&
       command.title !== undefined:
-      if (command.note.length > 175) {
-        // don't accept, return message
-      } else {
-        const todo = new Todo(
-          command,
-          serverFunctions.calculateClientIdFromTarget(
-            todoCollection_buffer,
-            command.list
-          )
-        );
-
-        serverFunctions.checkForExistingListsAndPushTodoToTarget(
+      const todo = new Todo(
+        command,
+        serverFunctions.calculateClientIdFromTarget(
           todoCollection_buffer,
-          command.list,
-          todo
-        );
+          command.list
+        )
+      );
 
-        serverFunctions
-          .writeTodoCollectionFile(userId, todoCollection_buffer)
-          .then(() => res.send({ msg: 'ok, data written' }))
-          .catch(err => console.log(err));
-      }
+      serverFunctions.checkForExistingListsAndPushTodoToTarget(
+        todoCollection_buffer,
+        command.list,
+        todo
+      );
+
+      serverFunctions
+        .writeTodoCollectionFile(userId, todoCollection_buffer)
+        .then(() => res.send({ msg: 'ok, data written' }))
+        .catch(err => console.log(err));
+
       break;
 
     default:

@@ -17,8 +17,9 @@ export const readTodoCollection = userId => {
       const response = await fetch(address);
       const json = await response.json();
       renderTodos(json);
+      // let containerPositions = clientFunctions.scanTodosContainersAndReturnPositions();
     } catch (e) {
-      console.log('there was an error');
+      console.log('There was an error when reading the Todo Collection');
       console.log(e);
     }
   };
@@ -121,17 +122,13 @@ export const createDOMElement = ({
   return newDOMElement;
 };
 
-export const scanTodoContainerToScrollWithArrowKeys = () => {
-  // todo This is not functional yet and just a first concept
-
-  let scrollToPoints = [];
-  document.addEventListener('DOMContentLoaded', () => {
-    let todoContainers = [
-      ...document.querySelectorAll('.todos__container'),
-    ];
-    todoContainers.forEach(container => {
-      scrollToPoints.push(container.offsetTop);
-    });
+export const scanTodosContainersAndReturnPositions = () => {
+  const header = document.querySelector('.header');
+  let containerPositions = [];
+  let todoContainers = [...document.querySelectorAll('.todos__container')];
+  todoContainers.forEach(container => {
+    let containerPosition = container.offsetTop - header.clientHeight;
+    containerPositions.push(containerPosition);
   });
-  return scrollToPoints;
+  return containerPositions;
 };
