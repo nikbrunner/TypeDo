@@ -32,6 +32,7 @@ UI_inputCommand.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     clientFunctions.processCommand(UI_inputCommand, user);
     clientFunctions.emptyAndFocusTarget(UI_inputCommand);
+    // clientFunctions.animateCSS('#output', 'fadeInRightBig');
   }
 });
 

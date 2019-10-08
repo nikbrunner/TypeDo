@@ -23,7 +23,10 @@ export const readTodoCollection = userId => {
     }
   };
 
-  request(readTodoCollection).then(() => scanTodosContainers());
+  request(readTodoCollection).then(() => {
+    scanTodosContainers();
+    animateCSS('.todos__container__header', 'pulse');
+  });
 };
 
 export const renderTodos = todoCollection => {
@@ -135,4 +138,18 @@ export const scanTodosContainers = () => {
   });
   window.containerPositions = containerPositions;
   // console.log(window.containerPositions);
+};
+
+export const animateCSS = (element, animationName, callback) => {
+  const node = document.querySelector(element);
+  node.classList.add('animated', animationName);
+
+  const handleAnimationEnd = () => {
+    node.classList.remove('animated', animationName);
+    node.removeEventListener('animationend', handleAnimationEnd);
+
+    if (typeof callback === 'function') callback();
+  };
+
+  node.addEventListener('animationend', handleAnimationEnd);
 };

@@ -4,6 +4,7 @@
 @import 'colors';
 @import 'mixins';
 @import 'fonts';
+@import '../../node_modules/animate.css/animate.min.css';
 
 ::selection {
   background: $color-accent;
@@ -130,11 +131,8 @@ body {
   }
 }
 
-// ! Todo Container
-
 .todos__container {
   $column-width: 20rem;
-
   @include flex(column wrap, flex-start, flex-start, center);
   min-width: 100%;
   padding: $space-s $space-m;
@@ -143,6 +141,7 @@ body {
   max-height: $todo__container--height;
   &__header {
     @include box-shadow();
+    animation-duration: 325ms;
     min-width: $column-width;
     max-width: $column-width;
     background: $color-dark;
@@ -173,6 +172,7 @@ body {
       opacity: 0.9;
     }
     &__title {
+      text-transform: capitalize;
       font-family: $font-header;
       padding-bottom: $space-xs;
       margin: $space-s $space-s $space-xs;
