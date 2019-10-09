@@ -13,7 +13,7 @@ const init = () => {
   position = 0;
   window.scrollTo(0, position);
   clientFunctions.readTodoCollection(user);
-  clientFunctions.emptyAndFocusTarget(UI_inputCommand);
+  // clientFunctions.emptyAndFocusTarget(UI_inputCommand);
 };
 
 init();
@@ -50,6 +50,11 @@ window.addEventListener('keyup', e => {
 
   // ! Scroll Down
   if (e.altKey && e.key == 'ArrowDown') {
+    clientFunctions.animateCSS({
+      multiple: true,
+      target: '.todos__container',
+      traits: ['pulse'],
+    });
     let nextPosition;
     clientFunctions.scanTodosContainers();
 

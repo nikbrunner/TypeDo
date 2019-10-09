@@ -64,7 +64,7 @@ body {
           }
         }
       }
-      &__login {
+      &__repo {
         @include flex(row nowrap, flex-end, center, center);
         width: 100%;
         * {
@@ -141,6 +141,7 @@ body {
   margin-top: $header--height;
   min-height: $todo__container--height;
   max-height: $todo__container--height;
+  animation-duration: 125ms;
   &__header {
     @include box-shadow();
     animation-duration: 325ms;
@@ -174,10 +175,13 @@ body {
     &--important {
       animation: hover 2.5s infinite;
       border: 1px solid $color-accent;
-      &:nth-of-type(2n + 1) {
+      &:nth-of-type(1) {
+        animation-delay: 0ms;
+      }
+      &:nth-of-type(2n + 0) {
         animation-delay: 250ms;
       }
-      &:nth-of-type(3n + 1) {
+      &:nth-of-type(3n + 0) {
         animation-delay: 500ms;
       }
       .todo__meta {
