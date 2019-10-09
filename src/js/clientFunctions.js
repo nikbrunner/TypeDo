@@ -28,7 +28,7 @@ export const readTodoCollection = userId => {
     animateCSS({
       multiple: true,
       target: '.todos__container__header',
-      traits: ['rubberBand', 'fast'],
+      traits: ['pulse', 'faster'],
     });
   });
 };

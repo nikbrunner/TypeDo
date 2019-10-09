@@ -93,8 +93,9 @@
   font-family: $font-text;
   min-width: 3rem;
   padding: $space-xxs;
-  &:placeholder {
+  &::placeholder {
     color: $color-bright;
+    font-weight: 300;
   }
   &:focus {
     background: $color-white;

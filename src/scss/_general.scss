@@ -15,7 +15,7 @@ html,
 body,
 #output {
   height: 100%;
-  background: $color-bright;
+  background: $color-mid--dark;
 }
 
 body {
@@ -133,6 +133,7 @@ body {
 
 .todos__container {
   $column-width: 20rem;
+
   @include flex(column wrap, flex-start, flex-start, center);
   min-width: 100%;
   padding: $space-s $space-m;
