@@ -5,6 +5,7 @@
 @import 'mixins';
 @import 'fonts';
 @import '../../node_modules/animate.css/animate.min.css';
+@import 'animations';
 
 ::selection {
   background: $color-accent;
@@ -170,6 +171,19 @@ body {
     &--noNote {
       background: scale-color($color-dark, $lightness: 10%);
     }
+    &--important {
+      animation: hover 2.5s infinite;
+      border: 1px solid $color-accent;
+      &:nth-of-type(2n + 1) {
+        animation-delay: 250ms;
+      }
+      &:nth-of-type(3n + 1) {
+        animation-delay: 500ms;
+      }
+      .todo__meta {
+        transform: translateY(-1px);
+      }
+    }
     &:hover {
       opacity: 0.9;
     }
@@ -192,7 +206,6 @@ body {
     &__note {
       align-self: flex-start;
       text-align: left;
-      // text-align: center;
       padding: 0;
       margin: 0 $space-s $space-xs;
       line-height: 1.25rem;

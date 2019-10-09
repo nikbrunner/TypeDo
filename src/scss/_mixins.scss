@@ -20,8 +20,8 @@
   background: $color1;
   background: linear-gradient($dir, $color1, $color2);
 }
-@mixin box-shadow($shadow--color: #0f0f0f33) {
-  box-shadow: $shadow--color 0px 2px 4px;
+@mixin box-shadow($shadow--color: #0f0f0f33, $offset: 2px, $blur: 4px) {
+  box-shadow: $shadow--color 0px $offset $blur;
 }
 @mixin box-shadow--inset($shadow--color: #0f0f0f33) {
   box-shadow: $shadow--color 0px 0px 0px 1px inset,

@@ -59,8 +59,10 @@ export const renderTodos = todoCollection => {
     });
 
     todoCollection[list].forEach((todo, index) => {
-      let todoNoNoteModifier =
-        todo.note === undefined ? 'todo--noNote' : '';
+      let noNoteModifier = todo.note === undefined ? 'todo--noNote' : '';
+      let importantModifier =
+        todo.important === true ? 'todo--important' : '';
+
       createDOMElement({
         content: `
         <h3 class="todo__title ${
@@ -74,7 +76,7 @@ export const renderTodos = todoCollection => {
         </div>
         `,
         target: todos__container,
-        classes: ['todo', todoNoNoteModifier],
+        classes: ['todo', noNoteModifier, importantModifier],
       });
     });
   }
