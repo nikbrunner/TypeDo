@@ -84,7 +84,6 @@
 }
 
 @mixin inputStyle() {
-  @include box-shadow--inset();
   @include text-shadow();
   background: $color-mid--dark;
   color: $color-bright;
@@ -94,10 +93,13 @@
   min-width: 3rem;
   padding: $space-xxs;
   &::placeholder {
-    color: $color-bright;
+    // color: $color-bright;
+    color: transparent;
+    text-shadow: none;
     font-weight: 300;
   }
   &:focus {
+    @include box-shadow--inset();
     background: $color-white;
     color: $color-mid--dark;
     border-radius: $border-radius;

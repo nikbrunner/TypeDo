@@ -40,7 +40,11 @@ UI_inputCommand.addEventListener('keydown', e => {
 window.addEventListener('keyup', e => {
   // ! Toggle Console
   if (e.ctrlKey && e.key == 'ö') {
-    console.log(window.containerPositions);
+    clientFunctions.animateCSS({
+      target: '#UI_inputCommand',
+      traits: ['flipInX'],
+    });
+
     if (UI_inputCommand === document.activeElement) {
       UI_inputCommand.blur();
     } else {
@@ -70,6 +74,11 @@ window.addEventListener('keyup', e => {
 
   // ! Scroll Up
   if (e.altKey && e.key == 'ArrowUp') {
+    clientFunctions.animateCSS({
+      multiple: true,
+      target: '.todos__container',
+      traits: ['pulse'],
+    });
     let prevPosition;
     clientFunctions.scanTodosContainers();
 

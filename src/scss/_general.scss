@@ -27,7 +27,7 @@ body {
 
 // ! Header
 .header {
-  @include box-shadow();
+  // @include box-shadow();
   background: $color-dark;
   height: $header--height;
   width: 100vw;
@@ -42,7 +42,7 @@ body {
     height: $header__brand--height;
     padding: 0 $space-m 0;
     position: relative;
-    z-index: 100;
+    z-index: 200;
     @media screen and (max-width: $breakpoint-xl) {
       @include grid(1fr 4fr, 1rem, none, 0);
     }
@@ -101,7 +101,7 @@ body {
     height: $header__input--height;
     padding: 0 $space-m;
     position: relative;
-    z-index: 99;
+    z-index: 90;
     * {
       height: calc(#{$header__input--height} * 0.75);
       margin: 0 $space-xs;
@@ -115,6 +115,13 @@ body {
     }
     input {
       @include inputStyle();
+      background: transparent;
+      // position: relative;
+      position: fixed;
+      top: 50vh;
+      width: 50%;
+      z-index: 95;
+      animation-duration: 500ms;
       caret-color: $color-mid;
       text-align: center;
       font-family: $font-text;
