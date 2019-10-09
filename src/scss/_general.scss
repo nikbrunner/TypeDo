@@ -150,10 +150,11 @@ body {
     padding: $space-s;
     border-radius: $border-radius;
     text-transform: capitalize;
-    // font-variant: small-caps;
     font-size: 1.5rem;
     text-align: left;
     font-family: $font-header;
+    font-weight: 900;
+    font-style: italic;
   }
   .todo {
     @include box-shadow($color-dark);
@@ -174,6 +175,7 @@ body {
     &__title {
       text-transform: capitalize;
       font-family: $font-header;
+      font-weight: 700;
       padding-bottom: $space-xs;
       margin: $space-s $space-s $space-xs;
       font-size: 1.75rem;

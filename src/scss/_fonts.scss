@@ -1,2 +1,60 @@
 $font-text: 'Open Sans', 'Segoe UI', sans-serif;
-$font-header: 'Alegreya Sans', 'Arvo', 'Segoe UI', sans-serif;
+$font-header: 'Alegreya Sans SC', 'Segoe UI', sans-serif;
+
+/* alegreya-sans-sc-regular - latin */
+@font-face {
+  font-family: 'Alegreya Sans SC';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Alegreya Sans SC Regular'), local('AlegreyaSansSC-Regular'),
+    url('../fonts/alegreya-sans-sc-v9-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/alegreya-sans-sc-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* alegreya-sans-sc-500 - latin */
+@font-face {
+  font-family: 'Alegreya Sans SC';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Alegreya Sans SC Medium'), local('AlegreyaSansSC-Medium'),
+    url('../fonts/alegreya-sans-sc-v9-latin-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/alegreya-sans-sc-v9-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* alegreya-sans-sc-700 - latin */
+@font-face {
+  font-family: 'Alegreya Sans SC';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Alegreya Sans SC Bold'), local('AlegreyaSansSC-Bold'),
+    url('../fonts/alegreya-sans-sc-v9-latin-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/alegreya-sans-sc-v9-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* alegreya-sans-sc-900 - latin */
+@font-face {
+  font-family: 'Alegreya Sans SC';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Alegreya Sans SC Black'), local('AlegreyaSansSC-Black'),
+    url('../fonts/alegreya-sans-sc-v9-latin-900.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/alegreya-sans-sc-v9-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* alegreya-sans-sc-900italic - latin */
+@font-face {
+  font-family: 'Alegreya Sans SC';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Alegreya Sans SC Black Italic'),
+    local('AlegreyaSansSC-BlackItalic'),
+    url('../fonts/alegreya-sans-sc-v9-latin-900italic.woff2')
+      format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/alegreya-sans-sc-v9-latin-900italic.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

@@ -25,7 +25,11 @@ export const readTodoCollection = userId => {
 
   request(readTodoCollection).then(() => {
     scanTodosContainers();
-    animateCSS('.todos__container__header', 'pulse');
+    animateCSS({
+      multiple: true,
+      target: '.todos__container__header',
+      traits: ['rubberBand', 'fast'],
+    });
   });
 };
 
@@ -140,16 +144,41 @@ export const scanTodosContainers = () => {
   // console.log(window.containerPositions);
 };
 
-export const animateCSS = (element, animationName, callback) => {
-  const node = document.querySelector(element);
-  node.classList.add('animated', animationName);
+export const animateCSS = ({
+  multiple = false,
+  target = target,
+  traits = ['bounce'],
+} = {}) => {
+  if (multiple === false) {
+    const element = document.querySelector(target);
 
-  const handleAnimationEnd = () => {
-    node.classList.remove('animated', animationName);
-    node.removeEventListener('animationend', handleAnimationEnd);
+    traits.unshift('animated');
 
-    if (typeof callback === 'function') callback();
-  };
+    traits.forEach(trait => {
+      element.classList.add(trait);
+    });
 
-  node.addEventListener('animationend', handleAnimationEnd);
+    element.addEventListener('animationend', () => {
+      traits.forEach(trait => {
+        element.classList.remove(trait);
+      });
+      element.removeEventListener('animationend', () => {});
+    });
+  } else if (multiple === true) {
+    const elements = [...document.querySelectorAll(target)];
+    elements.forEach(element => {
+      traits.unshift('animated');
+
+      traits.forEach(trait => {
+        element.classList.add(trait);
+      });
+
+      element.addEventListener('animationend', () => {
+        traits.forEach(trait => {
+          element.classList.remove(trait);
+        });
+        element.removeEventListener('animationend', () => {});
+      });
+    });
+  }
 };

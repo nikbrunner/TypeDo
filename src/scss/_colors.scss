@@ -1,9 +1,9 @@
 // $color-base: #1089ff;
-$color-base: #6f9fac;
-// $color-base: #7db6b6;
+// $color-base: #6f9fac;
+$color-base: #315975;
 
 $color-accent: saturate(
-  adjust-color(complement($color-base), $hue: 15deg),
+  adjust-color(complement($color-base), $hue: 15deg, $lightness: 15%),
   100%
 );
 $color-white: scale-color($color-base, $lightness: 90%);
