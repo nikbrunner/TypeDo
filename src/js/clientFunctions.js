@@ -27,7 +27,7 @@ export const readTodoCollection = userId => {
     scanTodosContainers();
     animateCSS({
       multiple: true,
-      target: '.todos__container__header',
+      target: '.todos__container',
       traits: ['pulse', 'faster'],
     });
   });

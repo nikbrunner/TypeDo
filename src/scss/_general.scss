@@ -1,8 +1,8 @@
-@import 'base';
 @import 'uni-space';
 @import 'variables';
 @import 'colors';
 @import 'mixins';
+@import 'base';
 @import 'fonts';
 @import '../../node_modules/animate.css/animate.min.css';
 @import 'animations';
@@ -37,7 +37,7 @@ body {
   left: 0;
   z-index: 1000;
   &__topBar {
-    @include grid(1fr 1fr, 1rem, none, 0);
+    @include grid(1fr 1fr, 0, none, 0);
     @include box-shadow();
     height: $header__brand--height;
     padding: 0 $space-m 0;
@@ -95,46 +95,25 @@ body {
       }
     }
   }
-  &__command {
-    @include flex(row nowrap, center, center, center);
-    background: $color-mid--dark;
+  #UI_inputCommand {
+    @include inputStyle();
+    background: transparent;
     height: $header__input--height;
-    padding: 0 $space-m;
-    position: relative;
-    z-index: 90;
-    * {
-      height: calc(#{$header__input--height} * 0.75);
-      margin: 0 $space-xs;
-      flex-grow: 1;
-      &:first-child {
-        margin-left: 0;
-      }
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-    input {
-      @include inputStyle();
-      background: transparent;
-      // position: relative;
-      position: fixed;
-      top: 50vh;
-      width: 50%;
-      z-index: 95;
-      animation-duration: 500ms;
-      caret-color: $color-mid;
-      text-align: center;
-      font-family: $font-text;
-      font-weight: 500;
-      font-size: calc(#{$header__input--height} * 0.4);
-      line-height: $header__input--height;
-      &:focus {
-        filter: drop-shadow(0 0 0.5rem $color-bright);
-        color: $color-mid--bright;
-      }
-    }
-    button {
-      @include btnStyle();
+    position: fixed;
+    font-family: 'Courier New', Courier, monospace !important;
+    top: 50vh;
+    left: 25vw;
+    width: 50%;
+    z-index: 1000;
+    caret-color: $color-mid;
+    text-align: center;
+    font-family: $font-text;
+    font-weight: 500;
+    font-size: calc(#{$header__input--height} * 0.4);
+    &:focus {
+      // box-shadow: 0 1rem 3rem 3rem $color-dark;
+      filter: drop-shadow(0 0 0.5rem $color-bright);
+      color: $color-mid--bright;
     }
   }
 }
@@ -148,7 +127,7 @@ body {
   margin-top: $header--height;
   min-height: $todo__container--height;
   max-height: $todo__container--height;
-  animation-duration: 125ms;
+  animation-duration: 125ms !important;
   &__header {
     @include box-shadow();
     animation-duration: 325ms;

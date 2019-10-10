@@ -98,6 +98,12 @@ router.post('/processCommand', (req, res) => {
           command.list
         )
       );
+      serverFunctions
+        .readTodoCollectionFile(userId)
+        .then(data => {
+          todoCollection_buffer = JSON.parse(data);
+        })
+        .catch(err => console.log(err));
 
       serverFunctions.checkForExistingListsAndPushTodoToTarget(
         todoCollection_buffer,

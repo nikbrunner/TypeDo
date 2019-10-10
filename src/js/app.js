@@ -42,7 +42,7 @@ window.addEventListener('keyup', e => {
   if (e.ctrlKey && e.key == 'ö') {
     clientFunctions.animateCSS({
       target: '#UI_inputCommand',
-      traits: ['flipInX'],
+      traits: ['flipInX', 'faster'],
     });
 
     if (UI_inputCommand === document.activeElement) {
