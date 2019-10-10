@@ -1,5 +1,6 @@
-$font-text: 'Open Sans', 'Segoe UI', sans-serif;
+$font-text: 'Segoe UI', sans-serif;
 $font-header: 'Alegreya Sans SC', 'Segoe UI', sans-serif;
+$font-mono: 'Fira Code', monospace;
 
 /* alegreya-sans-sc-regular - latin */
 @font-face {
@@ -57,4 +58,26 @@ $font-header: 'Alegreya Sans SC', 'Segoe UI', sans-serif;
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('../fonts/alegreya-sans-sc-v9-latin-900italic.woff')
       format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* fira-code-500 - latin */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+    url('../fonts/fira-code-v5-latin-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/fira-code-v5-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* fira-code-regular - latin */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../fonts/fira-code-v5-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/fira-code-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

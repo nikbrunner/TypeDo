@@ -89,14 +89,11 @@
   color: $color-bright;
   border-radius: $border-radius;
   border: none;
-  font-family: $font-text;
   min-width: 3rem;
   padding: $space-xxs;
   &::placeholder {
-    // color: $color-bright;
     color: transparent;
     text-shadow: none;
-    font-weight: 300;
   }
   &:focus {
     @include box-shadow--inset();
@@ -106,7 +103,7 @@
     box-shadow: 0px 0px 0px 1px $color-mid--bright;
     outline: none;
     &::placeholder {
-      color: $color-mid--bright;
+      color: $color-bright;
     }
   }
 }

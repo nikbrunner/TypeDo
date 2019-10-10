@@ -6,14 +6,16 @@ const UI_inputCommand = document.querySelector('#UI_inputCommand');
 const user = 'nibru';
 
 let position;
-// let containerPositions;
 
 // ! === INIT FUNCTION TO SET UP STARTUP
 const init = () => {
   position = 0;
   window.scrollTo(0, position);
   clientFunctions.readTodoCollection(user);
-  // clientFunctions.emptyAndFocusTarget(UI_inputCommand);
+  clientFunctions.animateCSS({
+    target: '.header',
+    traits: ['slideInDown', 'fast'],
+  });
 };
 
 init();
@@ -32,7 +34,6 @@ UI_inputCommand.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     clientFunctions.processCommand(UI_inputCommand, user);
     clientFunctions.emptyAndFocusTarget(UI_inputCommand);
-    // clientFunctions.animateCSS('#output', 'fadeInRightBig');
   }
 });
 
