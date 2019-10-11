@@ -1,15 +1,15 @@
-const { Command, Todo } = require('./lib/classConstructors.js');
-const serverFunctions = require('./lib/serverFunctions.js');
+const {Command, Todo} = require("./lib/classConstructors.js");
+const serverFunctions = require("./lib/serverFunctions.js");
 
-const bodyParser = require('body-parser');
-const express = require('express');
+const bodyParser = require("body-parser");
+const express = require("express");
 const router = express.Router();
 
 router.use(bodyParser.json());
 
 let todoCollection_buffer;
 
-router.post('/readTodoCollection', (req, res) => {
+router.post("/readTodoCollection", (req, res) => {
   const userId = req.body.userId;
   serverFunctions
     .readTodoCollectionFile(userId)
@@ -20,15 +20,15 @@ router.post('/readTodoCollection', (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.post('/processCommand', (req, res) => {
+router.post("/processCommand", (req, res) => {
   const command = new Command(req.body.command);
   const userId = req.body.userId;
 
   const keywords = {
-    addTodo: '-td',
-    remove: '-rm',
-    selectAllKeyword: '*',
-    selectSelfKeyword: 'self',
+    addTodo: "-td",
+    remove: "-rm",
+    selectAllKeyword: "*",
+    selectSelfKeyword: "self"
   };
 
   switch (true) {
@@ -52,7 +52,7 @@ router.post('/processCommand', (req, res) => {
 
       serverFunctions
         .writeTodoCollectionFile(userId, todoCollection_buffer)
-        .then(() => res.send({ msg: 'ok, data written' }))
+        .then(() => res.send({msg: "ok, data written"}))
         .catch(err => console.log(err));
       break;
 
@@ -67,7 +67,7 @@ router.post('/processCommand', (req, res) => {
 
       serverFunctions
         .writeTodoCollectionFile(userId, todoCollection_buffer)
-        .then(() => res.send({ msg: 'ok, data written' }))
+        .then(() => res.send({msg: "ok, data written"}))
         .catch(err => console.log(err));
       break;
 
@@ -83,7 +83,7 @@ router.post('/processCommand', (req, res) => {
 
       serverFunctions
         .writeTodoCollectionFile(userId, todoCollection_buffer)
-        .then(() => res.send({ msg: 'ok, data written' }))
+        .then(() => res.send({msg: "ok, data written"}))
         .catch(err => console.log(err));
       break;
 
@@ -98,12 +98,6 @@ router.post('/processCommand', (req, res) => {
           command.list
         )
       );
-      serverFunctions
-        .readTodoCollectionFile(userId)
-        .then(data => {
-          todoCollection_buffer = JSON.parse(data);
-        })
-        .catch(err => console.log(err));
 
       serverFunctions.checkForExistingListsAndPushTodoToTarget(
         todoCollection_buffer,
@@ -113,13 +107,13 @@ router.post('/processCommand', (req, res) => {
 
       serverFunctions
         .writeTodoCollectionFile(userId, todoCollection_buffer)
-        .then(() => res.send({ msg: 'ok, data written' }))
+        .then(() => res.send({msg: "ok, data written"}))
         .catch(err => console.log(err));
 
       break;
 
     default:
-      console.log('No valid input');
+      console.log("No valid input");
       break;
   }
 });
