@@ -65,6 +65,8 @@ Each Command should have 3 characters where the first one is always a dash -
 | -rm       | Remove the selection after the parameter ( which can be a todo or a list )                                                          |
 | \*        | Serves as a 'All' Selector and can be used before or after the parameters                                                           |
 
+<br>
+
 ## ⌨ Shortcuts
 
 | Shortcut                    | Functionality                             |
