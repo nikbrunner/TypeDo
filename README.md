@@ -54,9 +54,7 @@ The note is **always optional**.
 
 <br>
 
-## 🎛 Parameters
-
-Each Command should have 3 characters where the first one is always a dash -
+## 🎛 Parameters & Keywords
 
 | Parameter | Description                                                                                                                         |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
