@@ -7,15 +7,11 @@ A minimal, desktop and keyboard focused and performant todo app with multiple li
 ## ⚡ Functionality
 
 - My primary goal was to create a todo app for practice and my own usage, which i can operate without a mouse and is very fast and enjoyable to use.
-
 - You can toggle input console with a shortcut and write a command with parameters, like in a typical console. Just with the input string and based on the command parameters you have control the following arguments:
-
   - You can create a single **normal** todo in a list
   - You can create a single **important** todo in a list
   - You can complete / remove a **single** or **all** **todos** in a list
   - You can remove a **single** or **all** lists
-
-<br>
 
 - When a list doesn't exist, it gets automatically created and the item is added to it
 - Data gets read and written from and in a JSON File to the NodeJS Server with the core module `fs`
