@@ -88,15 +88,15 @@ This resolves to the following:
 <br>
 
 ```
-work -td eat lunch with stacy 'let her pay this time'
+work -td call peter 'ask about project xy'
 ```
 
 This resolves to the following:
 
 - In a list called **'work'**
 - Create a **Todo**
-- With the title **'eat lunch with stacy'**
-- With the note **'let her pay this time'**
+- With the title **'call peter'**
+- With the note **'ask about project xy'**
 
 <br>
 
