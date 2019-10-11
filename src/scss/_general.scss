@@ -116,7 +116,7 @@ body {
 .todos__container {
   $column-width: 17.5rem;
 
-  @include flex(column wrap, flex-start, flex-start, center);
+  @include flex(column wrap, flex-start, flex-start, flex-start);
   min-width: 100%;
   padding: $space-s $space-m;
   margin-top: $header--height;
