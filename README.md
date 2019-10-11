@@ -182,6 +182,8 @@ This resolves to the following:
 
 ## 🔭 Future Features
 
+- Description
+- Error Alert
 - Authentication
 - Removal of multiple todos
 - Updating Todos
