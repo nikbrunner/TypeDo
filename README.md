@@ -1,10 +1,6 @@
 # TypeDo
 
 <img src="https://i.ibb.co/RcMZtpZ/Type-Do-Logo.png" alt="Type-Do-Logo" border="0" width="250px">
-
-<br>
-<br>
-
 A minimal, desktop and keyboard focused and performant todo app with multiple lists.
 
 ## ⚡ Functionality
