@@ -184,6 +184,7 @@ This resolves to the following:
 - Removal of multiple todos
 - Updating Todos
 - Deploy to Heroku
+- Websockets
 
 <br>
 
