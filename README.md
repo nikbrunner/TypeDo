@@ -6,6 +6,8 @@
 
 > A minimal, desktop and keyboard focused and performant todo app with multiple lists
 
+[Watch a Demo on YouTube](https://www.youtube.com/embed/EOV96Qx5NoI)
+
 ## ⚡ Functionality
 
 - My primary goal was to create a todo app for practice and my own usage, which i can operate without a mouse and is very fast and enjoyable to use.
