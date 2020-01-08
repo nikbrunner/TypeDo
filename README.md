@@ -6,7 +6,7 @@
 
 > A minimal, desktop and keyboard focused and performant todo app with multiple lists
 
-[Watch a Demo on YouTube](https://www.youtube.com/embed/EOV96Qx5NoI)
+[Watch a Demo on YouTube](https://www.youtube.com/EOV96Qx5NoI)
 
 ## ⚡ Functionality
 
